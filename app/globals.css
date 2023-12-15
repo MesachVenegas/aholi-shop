@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  scroll-behavior: smooth;
+}
 
 .bg-header-img {
   background-image: url('/assets/bg_aholi_frame.png');
