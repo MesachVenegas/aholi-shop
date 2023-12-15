@@ -3,6 +3,7 @@ import { inter } from '@/components/ui/fonts'
 import Navbar from '@/components/nabvar/Navbar'
 import './globals.css'
 import Footer from '@/components/footer/Footer'
+import WhatsButton from '@/components/whatsbutton/WhatsButton'
 
 
 
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body className={`${inter.className} bg-lila-100 text-slate-900`}>
         <Navbar />
         {children}
+        <WhatsButton />
         <Footer />
       </body>
     </html>
