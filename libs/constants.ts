@@ -9,7 +9,7 @@ export const menuLinks = [
 ]
 
 export const socialLinks = [
-  { name: 'Whatsapp', url: '#', icon: faWhatsapp, color: 'text-emerald-400', hover: 'text-emerald-300' },
-  { name: 'Tiktok', url: '#', icon: faTiktok, color: 'text-slate-800', hover: 'text-slate-700' },
-  { name: 'Facebook', url: '#', icon: faFacebook, color: 'text-blue-500', hover: 'text-blue-400' },
+  { name: 'Whatsapp', url: '#', icon: faWhatsapp },
+  { name: 'Tiktok', url: '#', icon: faTiktok },
+  { name: 'Facebook', url: '#', icon: faFacebook },
 ]
