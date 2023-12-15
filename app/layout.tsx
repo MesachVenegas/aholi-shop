@@ -1,13 +1,15 @@
 import type { Metadata } from 'next'
 import { inter } from '@/components/ui/fonts'
+import Navbar from '@/components/nabvar/Navbar'
 import './globals.css'
-import Navbar from '@/components/Navbar'
+import Footer from '@/components/footer/Footer'
 
 
 
 export const metadata: Metadata = {
   title: 'Aholi | Home',
   description: 'Aholi Decoraciones para toda ocasion, recuerdos para todo tipo de eventos, XV años, Bodas, etc',
+  keywords: ['arreglos', 'decoracion', 'centros de mesa', 'xv años', 'decoraciones', 'bodas', 'graduaciones'],
 }
 
 export default function RootLayout({
@@ -17,9 +19,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className={`${inter.className} bg-lila-100`}>
+      <body className={`${inter.className} bg-lila-100 text-slate-900`}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   )
