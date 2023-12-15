@@ -7,11 +7,15 @@ import { CardServices } from '@/components/cardService/CardServices'
 import { ButtonLink, CursiveTitle, Title2, Title3, Title5 } from '@/components/ui'
 import { faChevronRight, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 
 export default function Home() {
 
   return (
     <>
+      <Link href='https://api.whatsapp.com/send?phone=523321860284' className='flex justify-center items-center fixed bg-rose-700 border border-rose-100 w-20 h-20 rounded-full z-50 right-12 bottom-12 shadow-xl'>
+        <FontAwesomeIcon icon={faWhatsapp} className='w-12 h-12 text-white' />
+      </Link>
       <header className='flex justify-center items-end w-full h-[90vh] bg-header-img'>
         <figure className='flex flex-col justify-center items-center gap-4'>
           <div className='relative w-60 h-72'>
