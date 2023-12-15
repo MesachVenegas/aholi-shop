@@ -1,13 +1,12 @@
 'use client'
 
+import Link from 'next/link'
+import Image from 'next/image'
+import { socialLinks } from '@/libs/constants'
 import { CardServices } from '@/components/cardService/CardServices'
 import { ButtonLink, CursiveTitle, Title2, Title3, Title5 } from '@/components/ui'
-import { socialLinks } from '@/libs/constants'
-import { faFacebook, faTiktok, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 import { faChevronRight, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Image from 'next/image'
-import Link from 'next/link'
 
 export default function Home() {
 
@@ -66,7 +65,7 @@ export default function Home() {
               </figure>
             </div>
           </div>
-          <Link href='/shop' className='flex group gap-2 items-center text-2xl mt-16 border w-48 transition-all ease-in-out duration-300 rounded-lg py-2 px-3 border-rose-700 text-rose-700'>
+          <Link href='/gallery' className='flex group gap-2 items-center text-2xl mt-16 border w-48 transition-all ease-in-out duration-300 rounded-lg py-2 px-3 border-rose-700 text-rose-700'>
             Ver Galeria
             <FontAwesomeIcon icon={faChevronRight} className='w-4 h-4  group-hover:ml-4'/>
           </Link>
@@ -128,9 +127,9 @@ export default function Home() {
                 <Title5>Redes Sociales</Title5>
                 <ul className='flex flex-r gap-6'>
                   {
-                    socialLinks.map( ({ name, url, icon, color, hover}) => (
+                    socialLinks.map( ({ name, url, icon }) => (
                       <li key={name}>
-                        <Link href={url} className={`${color} hover:${hover} drop-shadow-xl`}>
+                        <Link href={url} className='text-rose-700 hover:text-rose-100'>
                           <FontAwesomeIcon icon={icon} className='w-8 h-8'/>
                         </Link>
                       </li>

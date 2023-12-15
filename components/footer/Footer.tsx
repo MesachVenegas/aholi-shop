@@ -37,9 +37,9 @@ export default function Footer() {
           <Title5 color="text-slate-200">Redes Sociales</Title5>
           <ul className="flex gap-8">
             {
-              socialLinks.map( ({ name, url, icon, hover, color }) => (
+              socialLinks.map( ({ name, url, icon }) => (
                 <li key={name}>
-                  <Link href={url} className={`${color} hover:${hover}`}>
+                  <Link href={url} className="text-[#fcfcfc9d] hover:text-slate-100">
                     <FontAwesomeIcon icon={icon} className="w-8 h-8"/>
                   </Link>
                 </li>
