@@ -4,14 +4,14 @@
 
 
 .bg-header-img {
-  background-image: url('/assets/bg_aholi_frame..png');
+  background-image: url('/assets/bg_aholi_frame.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
 
 .bg-card-img {
-  background-image: url('/assets/bg_aholi_pattern.jpg');
+  background-image: url('/assets/bg_aholi_mobile2_pattern.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

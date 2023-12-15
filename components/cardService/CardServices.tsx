@@ -15,7 +15,7 @@ export const CardServices = ({ title, content, source} : { title: string, conten
         />
       </div>
       <Title4 color="text-white" >{title}</Title4>
-      <p className="text-white">
+      <p className="text-white p-4">
         {content}
       </p>
     </div>

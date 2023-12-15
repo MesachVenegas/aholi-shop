@@ -145,8 +145,12 @@ export default function Home() {
                 </ButtonLink>
               </li>
             </ul>
-            <figure className='w-full max-w-4xl h-[500px] relative border border-rose-100 rounded-figure overflow-hidden'>
-              <Image src='/images/decorations_san_valentin.jpeg' fill={true} alt='aholi_asset' style={{ objectFit: 'cover'}}/>
+            <figure className='hidden md:block w-full max-w-4xl h-[500px] relative border border-rose-100 rounded-figure overflow-hidden'>
+              <Image
+                src='/images/decorations_san_valentin.jpeg'
+                fill={true} alt='aholi_asset'
+                style={{ objectFit: 'cover'}}
+              />
             </figure>
           </div>
         </section>
