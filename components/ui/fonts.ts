@@ -5,7 +5,7 @@ export const inter = Inter({ subsets: ['latin'] });
 
 export const recursive = Recursive({ subsets: ['latin']});
 
-export const cedarville_cursive = Cedarville_Cursive({
+export const cedarville = Cedarville_Cursive({
   weight: '400',
   subsets: ['latin']
 });
