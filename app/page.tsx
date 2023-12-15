@@ -16,7 +16,7 @@ export default function Home() {
         <figure className='flex flex-col justify-center items-center gap-4'>
           <div className='relative w-60 h-72'>
             <Image
-              src='/logo_aholi.png'
+              src='/assets/logo_aholi.png'
               fill={true}
               alt='Aholi'
               className='drop-shadow-2xl'
