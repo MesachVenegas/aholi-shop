@@ -13,3 +13,91 @@ export const socialLinks = [
   { name: 'Facebook', url: 'https://www.facebook.com/profile.php?id=61554429999153&sk=about', icon: faFacebook },
   { name: 'Whatsapp', url: 'https://api.whatsapp.com/send?phone=523321860284', icon: faWhatsapp },
 ]
+
+
+export const galleryImages = [
+  {
+    src: '/images/bautizo.jpeg',
+    width: 400,
+    height: 250,
+    alt: 'Bautizo',
+  },
+  {
+    src: '/images/cumpleanos.jpeg',
+    width: 400,
+    height: 300,
+    alt: 'Cumpleaños decoración',
+  },
+  {
+    src: '/images/decoracion_4.jpeg',
+    width: 300,
+    height: 150,
+    alt: 'Bautizo',
+  },
+  {
+    src: '/images/decoration_1.jpg',
+    width: 300,
+    height: 200,
+    alt: 'Bautizo',
+  },
+  {
+    src: '/images/decoration_2.jpeg',
+    width: 200,
+    height: 300,
+    alt: 'Bautizo',
+  },
+  {
+    src: '/images/decorations_blue.jpeg',
+    width: 400,
+    height: 200,
+    alt: 'Bautizo',
+  },
+  {
+    src: '/images/decorations_white.jpeg',
+    width: 400,
+    height: 200,
+    alt: 'Bautizo',
+  },
+  {
+    src: '/images/decorations_rose.jpeg',
+    width: 300,
+    height: 200,
+    alt: 'Bautizo',
+  },
+  {
+    src: '/images/decorations_san_valentin.jpeg',
+    width: 400,
+    height: 300,
+    alt: 'Bautizo',
+  },
+  {
+    src: '/images/graduacion.jpeg',
+    width: 500,
+    height: 300,
+    alt: 'Bautizo',
+  },
+  {
+    src: '/images/primera_comunion.jpeg',
+    width: 200,
+    height: 200,
+    alt: 'Bautizo',
+  },
+  {
+    src: '/images/recuerdo_1.jpeg',
+    width: 200,
+    height: 200,
+    alt: 'Bautizo',
+  },
+  {
+    src: '/images/xv_anos.jpeg',
+    width: 300,
+    height: 200,
+    alt: 'Bautizo',
+  },
+  {
+    src: '/images/sirenita.jpeg',
+    width: 200,
+    height: 200,
+    alt: 'Bautizo',
+  },
+]
