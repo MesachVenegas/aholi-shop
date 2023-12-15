@@ -17,7 +17,7 @@ export default function Navbar() {
         <Link href="/">
           <div className="relative w-28 h-12">
             <Image
-              src='/frase aholi_alta.png'
+              src='/assets/frase_aholi_alta.png'
               fill={true}
               alt='Aholi'
               style={{ objectFit: 'cover'}}
