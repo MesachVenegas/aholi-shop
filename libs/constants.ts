@@ -42,8 +42,8 @@ export const galleryImages = [
   },
   {
     src: '/images/decoration_2.jpeg',
-    width: 200,
-    height: 300,
+    width: 350,
+    height: 400,
     alt: 'Bautizo',
   },
   {
