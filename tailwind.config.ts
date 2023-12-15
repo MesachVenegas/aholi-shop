@@ -1,6 +1,7 @@
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
+  darkMode: 'class',
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -33,9 +34,29 @@ const config: Config = {
         700: '#4a5568',
         800: '#2d3748',
         900: '#1a202c',
-      }
+      },
+      emerald: {
+        50: '#ecfdf5',
+        100: '#d1fae5',
+        200: '#a7f3d0',
+        300: '#6ee7b7',
+        400: '#34d399',
+        500: '#10b981',
+        600: '#059669',
+        700: '#047857',
+      },
+      blue: {
+        100: '#EFF6FF',
+        200: '#DBEAFE',
+        300: '#BFDBFE',
+        400: '#93C5FD',
+        500: '#60A5FA',
+        600: '#3B82F6',
+        700: '#2B6CB0'
+      },
     }
   },
   plugins: [],
 }
+
 export default config
