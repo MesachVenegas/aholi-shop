@@ -1,9 +1,11 @@
-import type { Metadata } from 'next'
-import { inter } from '@/components/ui/fonts'
-import Navbar from '@/components/nabvar/Navbar'
+import type { Metadata } from 'next';
+import { inter } from '@/components/ui/fonts';
+import Navbar from '@/components/nabvar/Navbar';
+import Footer from '@/components/footer/Footer';
+import WhatsButton from '@/components/whatsbutton/WhatsButton';
+import { Analytics } from '@vercel/analytics/react';
 import './globals.css'
-import Footer from '@/components/footer/Footer'
-import WhatsButton from '@/components/whatsbutton/WhatsButton'
+import GoogleAnalytics from '@/components/googleAnalytics/GoogleAnalytics';
 
 
 
@@ -25,6 +27,8 @@ export default function RootLayout({
         {children}
         <WhatsButton />
         <Footer />
+        <Analytics />
+        <GoogleAnalytics />
       </body>
     </html>
   )
