@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { socialLinks } from '@/libs/constants'
 import { CardServices } from '@/components/cardService/CardServices'
 import { ButtonLink, CursiveTitle, Title2, Title3, Title5 } from '@/components/ui'
-import { faChevronRight, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
+import { faAt, faChevronRight, faClock, faLink, faMapLocation, faPaperPlane, faPhone } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Home() {
@@ -106,26 +106,40 @@ export default function Home() {
           <div className='flex w-full justify-between p-4'>
             <ul className='flex flex-col gap-4 p-4'>
               <li className='flex flex-col gap-2'>
-                <Title5>Ubicación</Title5>
-                <p>Lorem ipsum dolor sit amet.</p>
+                <Title5>
+                  <FontAwesomeIcon icon={faMapLocation} className='w-5 h-5' />
+                  Ubicación
+                </Title5>
+                <p>Queretaro,México</p>
               </li>
               <li className='flex flex-col gap-2'>
-                <Title5>Horarios</Title5>
+                <Title5>
+                  <FontAwesomeIcon icon={faClock} className='w-5 h-5' />
+                  Horarios
+                </Title5>
                 <p>9:00 AM a 6:00 PM</p>
               </li>
               <li className='flex flex-col gap-2'>
-                <Title5>Teléfonos</Title5>
+                <Title5>
+                  <FontAwesomeIcon icon={faPhone} className='w-5 h-5' />
+                  Teléfonos
+                </Title5>
                 <div>
-                  <p>558 031 0566</p>
-                  <p>332 186 0284</p>
+                  <p>562 490 7801 o 332 186 0284</p>
                 </div>
               </li>
               <li className='flex flex-col gap-2'>
-                <Title5>Correo Electrónico</Title5>
-                <p>Lorem ipsum dolor sit amet.</p>
+                <Title5>
+                  <FontAwesomeIcon icon={faAt} className='w-5 h-5' />
+                  Correo Electrónico
+                </Title5>
+                <p>ventas@aholi.shop</p>
               </li>
               <li className='flex flex-col gap-2'>
-                <Title5>Redes Sociales</Title5>
+                <Title5>
+                  <FontAwesomeIcon icon={faLink} className='w-5 h-5' />
+                  Redes Sociales
+                </Title5>
                 <ul className='flex flex-r gap-6'>
                   {
                     socialLinks.map( ({ name, url, icon }) => (
