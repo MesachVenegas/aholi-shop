@@ -20,6 +20,13 @@
   background-position: center;
 }
 
+.bg-contact-img {
+  background-image: url('/assets/bg_contact.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
 .rounded-figure {
   -webkit-border-top-left-radius: 50px;
   -webkit-border-bottom-right-radius: 50px;
