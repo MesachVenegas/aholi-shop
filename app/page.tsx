@@ -12,7 +12,6 @@ export default function Home() {
 
   return (
     <>
-
       <header className='flex justify-center items-end w-full h-[90vh] bg-header-img'>
         <figure className='flex flex-col justify-center items-center gap-4'>
           <div className='relative w-60 h-72'>
