@@ -53,7 +53,9 @@ export default function Footer() {
           <a href='https://www.codefyplus.com/' >
             Hecho con
             <span> <FontAwesomeIcon icon={faHeart} beat className="w-4 h-4" /> </span>
-            By Codefy+
+            By <span className="bg-gradient-to-r from-blue-600 via-emerald-500 to-yellow-700 inline-block text-transparent bg-clip-text text-xl">
+              Codefy+
+            </span>
           </a>
         </div>
       </div>
