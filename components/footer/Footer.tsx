@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Title5 } from "../ui";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { menuLinks, socialLinks } from "@/libs/constants";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 export default function Footer() {
   return (
@@ -47,7 +48,14 @@ export default function Footer() {
             }
           </ul>
         </div>
-        <p>Aholi ©2023 | Todos los derechos Reservados</p>
+        <div className="flex flex-col gap-1">
+          <p>Aholi ©2023 | Todos los derechos Reservados</p>
+          <a href='https://www.codefyplus.com/' >
+            Hecho con
+            <span> <FontAwesomeIcon icon={faHeart} beat className="w-4 h-4" /> </span>
+            By Codefy+
+          </a>
+        </div>
       </div>
     </footer>
   )
