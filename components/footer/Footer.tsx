@@ -49,7 +49,7 @@ export default function Footer() {
           </ul>
         </div>
         <div className="flex flex-col gap-1">
-          <p>Aholi ©2023 | Todos los derechos Reservados</p>
+          <p>Aholi ©2024 | Todos los derechos Reservados</p>
           <a href='https://www.codefyplus.com/' >
             Hecho con
             <span> <FontAwesomeIcon icon={faHeart} beat className="w-4 h-4" /> </span>
