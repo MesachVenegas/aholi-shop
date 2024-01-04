@@ -3,11 +3,12 @@
 import { menuLinks } from "@/libs/constants";
 import { faBagShopping, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Navbar() {
+  const router = useRouter();
   const pathname = usePathname();
 
 
@@ -43,11 +44,13 @@ export default function Navbar() {
           }
         </ul>
         <ul className="flex gap-4">
-          <li>
-            <FontAwesomeIcon icon={faUser} className="w-5 h-5 cursor-pointer"/>
+          <li className="flex gap-2 items-center text-sm cursor-pointer" onClick={() => router.push('/login')}>
+            Iniciar Sesion
+            <FontAwesomeIcon icon={faUser} className="w-5 h-5"/>
           </li>
-          <li>
-            <FontAwesomeIcon icon={faBagShopping} className="w-5 h-5 cursor-pointer"/>
+          <li className="flex gap-2 items-center text-sm cursor-pointer">
+            Carrito
+            <FontAwesomeIcon icon={faBagShopping} className="w-5 h-5"/>
           </li>
         </ul>
       </div>
