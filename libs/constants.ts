@@ -1,11 +1,12 @@
 import { faFacebook, faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope, faHome, faImages, faShop } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faHome, faImages, faShop, faUserTie } from "@fortawesome/free-solid-svg-icons";
 
 export const menuLinks = [
   { name: 'Inicio', url: '/', icon: faHome },
   { name: 'Galeria', url: '/gallery', icon: faImages },
   { name: 'Tienda', url: '/shop', icon: faShop },
   { name: 'Contacto', url: '/contact', icon: faEnvelope },
+  { name: 'Admin', url: '/admin', icon: faUserTie },
 ]
 
 export const socialLinks = [
