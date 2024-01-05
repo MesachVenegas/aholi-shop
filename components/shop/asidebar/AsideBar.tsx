@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Title4 } from "@/components/ui";
 import AsideButton from "@/components/ui/AsideButton";
-import { categories, formas } from "@/libs/constants";
+import { categories } from "@/libs/constants";
 
 
 export default function AsideBar() {
