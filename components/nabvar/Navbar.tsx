@@ -21,6 +21,7 @@ export default function Navbar() {
               src='/assets/frase_aholi_alta.png'
               fill={true}
               alt='Aholi'
+              sizes='(max-width: 120px)'
               style={{ objectFit: 'cover'}}
             />
           </div>
