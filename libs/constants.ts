@@ -1,5 +1,5 @@
 import { faFacebook, faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope, faHome, faImages, faShop, faUserTie } from "@fortawesome/free-solid-svg-icons";
+import { faBoxOpen, faEnvelope, faHome, faImages, faLayerGroup, faShop, faTags, faUserTie } from "@fortawesome/free-solid-svg-icons";
 
 export const menuLinks = [
   { name: 'Inicio', url: '/', icon: faHome },
@@ -13,6 +13,13 @@ export const socialLinks = [
   { name: 'Instragram', url: 'https://www.instagram.com/aholi73/', icon: faInstagram },
   { name: 'Facebook', url: 'https://www.facebook.com/profile.php?id=61554429999153&sk=about', icon: faFacebook },
   { name: 'Whatsapp', url: 'https://api.whatsapp.com/send?phone=523321860284', icon: faWhatsapp },
+]
+
+export const adminMenu = [
+  { name: 'Inicio', url: '/admin' , icon: faLayerGroup },
+  { name: 'Productos', url: '/admin/products' , icon: faBoxOpen },
+  { name: 'Categorías', url: '/admin/categories' , icon: faTags },
+  { name: 'Galeria', url: '/admin/gallery' , icon: faImages },
 ]
 
 
@@ -117,47 +124,6 @@ export const categories = [
   { name: 'XV Años', icon: ''},
   { name: 'Macetas', icon: ''},
   { name: 'Primera Comunion y Confirmacion', icon: ''},
-]
-
-export const formas = [
-  {
-    name: 'Prisma',
-    dimensiones: [
-      { name: '8x4', price: 11 , form: 'normal' },
-      { name: '8.5x6.5', price: 15 , form: 'rounded' },
-    ]
-  },
-  {
-    name: 'Octagonal',
-    dimensiones: [
-      { name: '5x4.5', price: 9 , form: 'normal' },
-    ]
-  },
-  {
-    name: 'Redonda',
-    dimensiones: [
-      { name: '8x5', price: 15 , form: 'rounded' },
-      { name: '5.3x7', price: 15 , form: 'rounded' },
-    ]
-  },
-  {
-    name: 'Hexagonal',
-    dimensiones: [
-      { name: '8x5', price: 0 , form: 'normal' },
-    ]
-  },
-  {
-    name: 'Escalera',
-    dimensiones: [
-      { name: '15x5', price: 15 , form: 'rounded' },
-    ]
-  },
-  {
-    name: 'Tubular',
-    dimensiones: [
-      { name: '5x3', price: 5 , form: 'rounded' },
-    ]
-  },
 ]
 
 export const products = [
