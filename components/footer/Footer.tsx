@@ -16,6 +16,7 @@ export default function Footer() {
             <Image
               src='/assets/logo_aholi.png'
               fill={true}
+              sizes='(max-width: 230px)'
               alt="Aholi Decoration Logo"
             />
           </div>
