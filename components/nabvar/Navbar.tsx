@@ -15,7 +15,7 @@ export default function Navbar() {
   return (
     <nav className="flex justify-center text-white items-center w-full h-16 p-5 bg-rose-100 font-semibold">
       <div className="flex-grow">
-        <Link href="/">
+        <Link href="/" prefetch={false} >
           <div className="relative w-28 h-12">
             <Image
               src='/assets/frase_aholi_alta.png'
