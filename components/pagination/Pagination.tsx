@@ -24,7 +24,7 @@ export default function Pagination({ count } : { count: number}) {
   }
 
   return (
-    <div className="flex justify-between px-5 mt-5">
+    <div className="flex justify-between px-5 mt-7">
       <button
         className={`flex gap-2 items-center bg-rose-100 py-1 px-3 rounded-lg text-white hover:bg-rose-700 ${!hasPrev ? 'opacity-50 cursor-not-allowed' : null }`}
         disabled={!hasPrev}
