@@ -1,6 +1,7 @@
 {
   "name": "aholi-shop",
   "version": "0.1.0",
+  "author": "Mesach Venegas",
   "private": true,
   "scripts": {
     "dev": "next dev",
