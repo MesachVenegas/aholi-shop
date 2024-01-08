@@ -20,6 +20,7 @@ export default function Home() {
               fill={true}
               alt='Aholi'
               className='drop-shadow-2xl'
+              sizes='(max-width: 240px)'
               style={{ objectFit: 'cover'}}
             />
           </div>
@@ -43,6 +44,7 @@ export default function Home() {
                 src='/images/decorations_blue.jpeg'
                 fill={true}
                 alt='Aholi Decoraciones'
+                sizes='(max-width: 440px)'
                 style={{ objectFit: 'cover'}}
               />
             </figure>
@@ -52,6 +54,7 @@ export default function Home() {
                   src='/images/decorations_white.jpeg'
                   fill={true}
                   alt='Aholi Decoraciones'
+                  sizes='(max-width: 440px)'
                   style={{ objectFit: 'cover'}}
                 />
               </figure>
@@ -60,6 +63,7 @@ export default function Home() {
                   src='/images/decorations_rose.jpeg'
                   fill={true}
                   alt='Aholi Decoraciones'
+                  sizes='(max-width: 440px)'
                   style={{ objectFit: 'cover'}}
                 />
               </figure>
@@ -163,6 +167,7 @@ export default function Home() {
                 src='/images/decorations_san_valentin.jpeg'
                 fill={true} alt='aholi_asset'
                 style={{ objectFit: 'cover'}}
+                sizes='(max-width: 440px)'
               />
             </figure>
           </div>
