@@ -4,8 +4,8 @@ import Navbar from '@/components/nabvar/Navbar';
 import Footer from '@/components/footer/Footer';
 import WhatsButton from '@/components/whatsbutton/WhatsButton';
 import { Analytics } from '@vercel/analytics/react';
-import './globals.css'
 import GoogleAnalytics from '@/components/googleAnalytics/GoogleAnalytics';
+import './globals.css'
 
 
 
@@ -20,6 +20,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
+
   return (
     <html lang="es">
       <body className={`${inter.className} bg-lila-100 text-slate-900`}>
