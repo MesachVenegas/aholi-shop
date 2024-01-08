@@ -1,11 +1,11 @@
 'use client'
 
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { menuLinks } from "@/libs/constants";
 import { faBagShopping, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { usePathname, useRouter } from "next/navigation";
-import Image from "next/image";
-import Link from "next/link";
 
 export default function Navbar() {
   const router = useRouter();
@@ -23,6 +23,7 @@ export default function Navbar() {
               alt='Aholi'
               sizes='(max-width: 120px)'
               style={{ objectFit: 'cover'}}
+              priority
             />
           </div>
         </Link>
