@@ -18,7 +18,7 @@ export const socialLinks = [
 export const adminMenu = [
   { name: 'Inicio', url: '/admin' , icon: faLayerGroup },
   { name: 'Productos', url: '/admin/products' , icon: faBoxOpen },
-  { name: 'Categorías', url: '/admin/categories' , icon: faTags },
+  { name: 'Etiquetas', url: '/admin/tags' , icon: faTags },
   { name: 'Galeria', url: '/admin/gallery' , icon: faImages },
 ]
 
@@ -121,9 +121,6 @@ export const categories = [
   { name: 'Cumpleaños', icon: ''},
   { name: 'Graduaciones', icon: ''},
   { name: 'Jubilación', icon: ''},
-  { name: 'XV Años', icon: ''},
-  { name: 'Macetas', icon: ''},
-  { name: 'Primera Comunion y Confirmacion', icon: ''},
 ]
 
 export const products = [
