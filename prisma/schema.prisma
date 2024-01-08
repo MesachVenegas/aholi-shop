@@ -11,44 +11,46 @@ datasource db {
 }
 
 model User {
-  id Strign @id @default(uuid())
-  image Strign?
-  name Strign
-  email Strign @unique
-  password Strign
+  id String @id @default(uuid())
+  image String?
+  name String
+  email String @unique
+  password String
   validate Boolean @default(false)
 }
 
 model Products {
-  id Strign @id @default(uuid())
-  name Strign @unique
+  id String @id @default(uuid())
+  name String @unique
   price Int @default(0)
-  size Sizes @relation(fields: [sizeId], reference: [id], onDelete: Cascade)
+  size Sizes @relation(fields: [sizeId], references: [id], onDelete: Cascade)
   sizeId Int
-  category Category @relation(fields: [categoryId], reference: [id], onDelete: Cascade)
+  category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
   categoryId Int
-  description Strign
-  images Array
+  description String
+  images Json
 }
 
 model ImagesGallery {
   id Int @id @default(autoincrement())
-  src Strign
+  src String
   width Int
   height Int
-  alt Strign
+  alt String
 }
 
 model Category {
   id Int @id @default(autoincrement())
-  name Strign
-  icon Strign
+  name String
+  icon String
+  products Products[]
 }
 
 model Sizes {
   id Int @id @default(autoincrement())
-  name Strign
-  width Strign
-  height Strign
-  type Strign
+  name String
+  width String
+  height String
+  type String
+  products Products[]
 }
