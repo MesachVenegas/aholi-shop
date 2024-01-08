@@ -14,12 +14,14 @@ export interface ProductProps {
 };
 
 export interface CategoriesProps {
+  id: number;
   name: string;
   description?: string;
   icon?: IconDefinition;
 }
 
 export interface SizesProps {
+  id: number;
   name: string;
   width: string;
   height: string;
