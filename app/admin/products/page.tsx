@@ -19,7 +19,7 @@ export default function ProductsAdmin() {
           Agregar producto
         </ButtonLink>
       </div>
-      <div className='p-4'>
+      <div className='flex flex-col justify-between bg-white rounded-lg shadow-xl min-h-[75vh] p-4'>
         <ProductsTable title='Listado de productos' tableData={products} />
         <Pagination count={1} />
       </div>
