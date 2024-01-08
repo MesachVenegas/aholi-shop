@@ -33,8 +33,8 @@ export default function ProductsTable ({ title, tableData } : { title: string, t
           </TableRow>
         </TableHead>
         <TableBody>
-          {tableData.map((prod: ProductProps) => (
-            <TableRow key={prod.title} className="hover:bg-rose-100/10">
+          {tableData.map((prod: ProductProps, index) => (
+            <TableRow key={index} className="hover:bg-rose-100/10">
               <TableCell>{prod.title}</TableCell>
               <TableCell>
                 <Text>{prod.description}</Text>
