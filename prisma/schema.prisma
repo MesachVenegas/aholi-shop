@@ -6,6 +6,49 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
+}
+
+model User {
+  id Strign @id @default(uuid())
+  image Strign?
+  name Strign
+  email Strign @unique
+  password Strign
+  validate Boolean @default(false)
+}
+
+model Products {
+  id Strign @id @default(uuid())
+  name Strign @unique
+  price Int @default(0)
+  size Sizes @relation(fields: [sizeId], reference: [id], onDelete: Cascade)
+  sizeId Int
+  category Category @relation(fields: [categoryId], reference: [id], onDelete: Cascade)
+  categoryId Int
+  description Strign
+  images Array
+}
+
+model ImagesGallery {
+  id Int @id @default(autoincrement())
+  src Strign
+  width Int
+  height Int
+  alt Strign
+}
+
+model Category {
+  id Int @id @default(autoincrement())
+  name Strign
+  icon Strign
+}
+
+model Sizes {
+  id Int @id @default(autoincrement())
+  name Strign
+  width Strign
+  height Strign
+  type Strign
 }
