@@ -1,16 +1,19 @@
 'use client'
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import { recursive } from "@/components/ui/fonts"
-import { categories } from "@/libs/constants"
-import { ImagesProps, ProductFormPros } from "@/models/product"
+import { CategoriesProps, ImagesProps, ProductFormPros, SizesProps } from "@/models/product"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faXmark } from "@fortawesome/free-solid-svg-icons"
 import { useForm, SubmitHandler } from "react-hook-form"
+import { getCategorySelect } from "@/libs/categories/fetching"
+import { getSizeSelect } from "@/libs/sizes/data"
 
 export default function AddNewProduct() {
   const [images, setImages] = useState<ImagesProps[]>([])
+  const [categories, setCategories] = useState<CategoriesProps[]>([])
+  const [sizes, setSizes] = useState<SizesProps[]>([])
   const { register, handleSubmit, formState: { errors } } = useForm<ProductFormPros>();
 
   const handleForm: SubmitHandler<ProductFormPros> = (data) => {
@@ -47,6 +50,22 @@ export default function AddNewProduct() {
     setImages(newImgs);
   }
 
+  const loadCategories = async () => {
+    await getCategorySelect()
+      .then(res => {
+        setCategories(res)
+      })
+      .catch(err => console.error(err))
+  }
+
+  const loadSizes = async () => {
+    await getSizeSelect()
+      .then(res => {
+        setSizes(res)
+      })
+      .catch(err => console.error(err))
+  }
+
   const changeInput = (e: any) => {
     let indexImg;
 
@@ -61,6 +80,12 @@ export default function AddNewProduct() {
     setImages(newImageState);
 
   }
+
+
+  useEffect( () => {
+    loadCategories();
+    loadSizes();
+  },[])
 
   return (
     <div className="flex flex-col gap-8 p-6">
@@ -163,8 +188,8 @@ export default function AddNewProduct() {
               >
                 <option value="none">Select...</option>
                 {
-                  categories.map( (category, index) => (
-                    <option key={index} value={category.name}>{category.name}</option>
+                  sizes.map( (size: SizesProps) => (
+                    <option key={size.id} value={size.name}>{size.height}x{size.width} cms {size.type}</option>
                   ))
                 }
               </select>
