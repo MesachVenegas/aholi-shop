@@ -1,16 +1,23 @@
 import { IconDefinition } from "@fortawesome/free-brands-svg-icons";
 
 export interface ProductProps {
-  title: string;
-  images: {
-    src: string,
-    description: string,
-  }[];
-  hight: string;
-  width: string;
-  description: string;
+  id: string;
+  name: string;
   price: number;
-  tags: string[];
+  description: string;
+  size: {
+    id: number;
+    name: string;
+    width: string;
+    height: string;
+    type: string;
+  };
+  category: {
+    id: number;
+    name: string;
+    icon: string;
+  };
+  images: string;
 };
 
 export interface CategoriesProps {
