@@ -36,10 +36,10 @@ export default function SizesTable ({ title, tableData } : { title: string, tabl
             <TableRow key={index} className="hover:bg-rose-100/10">
               <TableCell>{prod.name}</TableCell>
               <TableCell>
-                <Text>{prod.height}</Text>
+                <Text>{prod.height} cms</Text>
               </TableCell>
               <TableCell>
-                <Text>{prod.width}</Text>
+                <Text>{prod.width} cms</Text>
               </TableCell>
               <TableCell>
                 <Text>{prod.type}</Text>
