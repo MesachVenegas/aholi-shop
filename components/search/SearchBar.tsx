@@ -6,7 +6,7 @@ import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 
 
-export default function SearchBar({ placeholder }: { placeholder: string }) {
+export default function SearchBar({ placeholder, query }: { placeholder: string, query: string }) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -15,9 +15,9 @@ export default function SearchBar({ placeholder }: { placeholder: string }) {
   const handleSearch = useDebouncedCallback( (data : string) => {
     params.set('page', '1');
     if(data){
-      data.length > 2 && params.set('product', data);
+      data.length > 2 && params.set(query, data);
     }else {
-      params.delete('product');
+      params.delete(query);
     }
 
     replace(`${pathname}?${params.toString()}`);
