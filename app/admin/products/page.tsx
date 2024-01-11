@@ -3,6 +3,7 @@ import Pagination from '@/components/pagination/Pagination'
 import SearchBar from '@/components/search/SearchBar'
 import { ButtonLink } from '@/components/ui'
 import { getProducts, totalProducts } from '@/libs/products/fetching'
+import { ProductProps } from '@/models/product'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
@@ -28,7 +29,7 @@ export default async function ProductsAdmin({
         </ButtonLink>
       </div>
       <div className='flex flex-col justify-between bg-white rounded-lg shadow-xl min-h-[75vh] p-4'>
-        <ProductsTable title='Listado de productos' tableData={products} />
+        <ProductsTable title='Listado de productos' tableData={products as ProductProps[] } />
         <Pagination count={productsCount} />
       </div>
     </article>
