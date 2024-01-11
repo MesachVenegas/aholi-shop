@@ -1,4 +1,5 @@
 import { IconDefinition } from "@fortawesome/free-brands-svg-icons";
+import { Decimal } from "@prisma/client/runtime/library";
 
 export interface ProductProps {
   id: string;
@@ -36,7 +37,8 @@ export interface SizesProps {
 }
 
 export interface ImagesProps {
-  index: number;
+  index?: number;
+  id? : number;
   name: string;
   url: string;
   file: {
@@ -56,4 +58,30 @@ export type ProductFormPros = {
   category: string;
   description: string;
   images: ImagesProps[];
+}
+
+
+export type ProductResponse = {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  images: {
+    name: string;
+    url: string;
+    alt: string;
+  }[];
+  size: {
+    id: number;
+    name: string;
+    width: string;
+    height: string;
+    type: string;
+  }
+  category: {
+    id: number;
+    name: string;
+    description: string;
+    icon?: string;
+  }
 }
