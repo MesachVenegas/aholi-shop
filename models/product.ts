@@ -24,7 +24,7 @@ export interface CategoriesProps {
   id: number;
   name: string;
   description?: string;
-  icon?: IconDefinition;
+  icon?: string | null;
 }
 
 export interface SizesProps {
