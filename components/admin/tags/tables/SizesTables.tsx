@@ -1,7 +1,8 @@
 'use client'
 
+import { removeSize } from "@/libs/sizes/actions";
 import { SizesProps } from "@/models/product";
-import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   Card,
@@ -18,6 +19,11 @@ import {
 
 export default function SizesTable ({ title, tableData } : { title: string, tableData: SizesProps[] }){
 
+  const rmSize = async (id: number) => {
+    await removeSize(id)
+      .then(res => console.log(res))
+      .catch(err => console.error(err))
+  }
 
   return (
     <Card className="border border-rose-100/40 rounded-xl">
@@ -45,11 +51,7 @@ export default function SizesTable ({ title, tableData } : { title: string, tabl
                 <Text>{prod.type}</Text>
               </TableCell>
               <TableCell className="flex gap-3">
-                  <span className="flex items-center gap-1 cursor-pointer text-rose-100">
-                    <FontAwesomeIcon icon={faEdit} className="w-4 h-4" />
-                    Editar
-                  </span>
-                  <span className="flex items-center gap-1 cursor-pointer text-red-600">
+                  <span className="flex items-center gap-1 cursor-pointer text-red-600" onClick={() => rmSize(prod.id) }>
                     <FontAwesomeIcon icon={faTrash} className="w-4 h-4" />
                     Eliminar
                   </span>
