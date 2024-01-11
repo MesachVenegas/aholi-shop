@@ -3,9 +3,19 @@
 import { useState } from 'react'
 import { faAdd, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { newSize } from '@/libs/sizes/actions';
 
 export default function AddSize() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const addNewSize = async (data : Iterable<readonly [PropertyKey, any]>) => {
+    await newSize(data)
+      .then( res => {
+        setIsOpen(false);
+      }).catch( error => {
+        console.error(error)
+      });
+  }
 
 
   return (
@@ -20,7 +30,10 @@ export default function AddSize() {
         {
           isOpen && (
             <div className="fixed top-0 left-0 flex justify-center items-center w-full h-full backdrop-blur-md z-10">
-              <form className="flex flex-col w-full max-w-xl p-6 shadow-2xl bg-white gap-6 rounded-lg justify-center items-center">
+              <form
+                action={addNewSize}
+                className="flex flex-col w-full max-w-xl p-6 shadow-2xl bg-white gap-6 rounded-lg justify-center items-center"
+              >
                 <span className="flex self-end hover:bg-red-600 hover:text-white transition-all">
                   <FontAwesomeIcon
                     icon={faXmark}
@@ -35,6 +48,7 @@ export default function AddSize() {
                     <input
                       id="name"
                       type="text"
+                      name='name'
                       className="bg-slate-200 w-full max-w-sm p-2 rounded-lg border border-transparent focus:outline-none focus:border-rose-700"
                     />
                   </div>
@@ -44,6 +58,7 @@ export default function AddSize() {
                       <input
                         id="height"
                         type="text"
+                        name='height'
                         className="bg-slate-200 w-full max-w-[150px] p-2 rounded-lg border border-transparent focus:outline-none focus:border-rose-700"
                       />
                       cms
@@ -55,6 +70,7 @@ export default function AddSize() {
                       <input
                         id="width"
                         type="text"
+                        name='width'
                         className="bg-slate-200 w-full max-w-[150px] p-2 rounded-lg border border-transparent focus:outline-none focus:border-rose-700"
                       />
                       cms
@@ -63,8 +79,8 @@ export default function AddSize() {
                   <div className='flex items-center justify-between gap-4'>
                     <label htmlFor="type">Tipo</label>
                     <select
-                      name="type"
                       id="type"
+                      name='type'
                       className="bg-slate-200 w-full max-w-[190px] p-2 rounded-lg border border-transparent focus:outline-none focus:border-rose-700"
                     >
                       <option value="select">Seleccionar</option>

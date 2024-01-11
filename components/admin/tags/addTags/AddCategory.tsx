@@ -3,14 +3,18 @@
 import { useState } from "react";
 import { faAdd, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { newCategory } from "@/libs/sizes/actions";
+import { newCategory } from "@/libs/categories/actions";
 
 export default function AddCategory() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const addCategory = async (data: Iterable<readonly [PropertyKey, any]>) => {
-    const result = await newCategory(data);
-    console.log(result);
+    await newCategory(data)
+      .then( res => {
+        setIsOpen(false)
+      }).catch( error  => {
+        console.error(error);
+      })
   }
 
   return (
@@ -26,6 +30,7 @@ export default function AddCategory() {
           isOpen && (
             <div className="fixed top-0 left-0 flex justify-center items-center w-full h-full backdrop-blur-md z-10">
               <form
+                action={addCategory}
                 className="flex flex-col w-full max-w-xl p-6 shadow-2xl bg-white gap-6 rounded-lg justify-center items-center"
               >
                 <span className="flex self-end hover:bg-red-600 hover:text-white transition-all">
