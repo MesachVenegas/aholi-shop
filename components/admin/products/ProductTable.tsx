@@ -28,6 +28,7 @@ export default function ProductsTable ({ title, tableData } : { title: string, t
           <TableRow>
             <TableHeaderCell>Nombre</TableHeaderCell>
             <TableHeaderCell>Descripcion</TableHeaderCell>
+            <TableHeaderCell>Medidas</TableHeaderCell>
             <TableHeaderCell>Categorías</TableHeaderCell>
             <TableHeaderCell>Precio</TableHeaderCell>
           </TableRow>
@@ -35,18 +36,15 @@ export default function ProductsTable ({ title, tableData } : { title: string, t
         <TableBody>
           {tableData.map((prod: ProductProps, index) => (
             <TableRow key={index} className="hover:bg-rose-100/10">
-              <TableCell>{prod.title}</TableCell>
+              <TableCell>{prod.name}</TableCell>
               <TableCell>
                 <Text>{prod.description}</Text>
               </TableCell>
+              <TableCell>
+                <Text>{prod.size.height}cms x {prod.size.width}cms</Text>
+              </TableCell>
               <TableCell className="flex gap-2">
-                {
-                  prod.tags.map( tag => (
-                    <small key={tag} className="px-2 py-1 bg-rose-100/20 rounded-xl">
-                      {tag}
-                    </small>
-                  ))
-                }
+                {prod.category.name}
               </TableCell>
               <TableCell>
                   {valueFormatter(prod.price)}
