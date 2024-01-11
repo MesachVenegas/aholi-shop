@@ -63,7 +63,7 @@ model Products {
   sizeId Int
   categoryId Int
   description String
-  images Json
+  images String
   category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
   size Sizes @relation(fields: [sizeId], references: [id], onDelete: Cascade)
 }
@@ -79,7 +79,8 @@ model ImagesGallery {
 model Category {
   id Int @id @default(autoincrement())
   name String
-  icon String
+  icon String?
+  description String @default("")
   products Products[]
 }
 
