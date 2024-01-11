@@ -1,4 +1,6 @@
-import { prisma } from "../prisma";
+'use server'
+
+import prisma from "../prisma";
 
 /**
  * Retrieves products based on the provided search criteria.
