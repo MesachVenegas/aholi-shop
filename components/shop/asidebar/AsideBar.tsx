@@ -1,12 +1,10 @@
-'use client'
-
-import { useState } from "react";
 import { Title4 } from "@/components/ui";
 import AsideButton from "@/components/ui/AsideButton";
-import { categories } from "@/libs/constants";
+import { getCategorySelect } from "@/libs/categories/fetching";
 
 
-export default function AsideBar() {
+export default async function AsideBar() {
+  const categories = await getCategorySelect()
 
 
   return (
@@ -18,8 +16,8 @@ export default function AsideBar() {
         </div>
         <ul className="flex flex-wrap gap-2">
           {
-            categories.map((category, index) => (
-              <li key={index} >
+            categories.map((category) => (
+              <li key={category.id} >
                 <AsideButton>
                   { category.name }
                 </AsideButton>
