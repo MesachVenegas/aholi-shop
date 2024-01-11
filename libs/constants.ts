@@ -197,3 +197,8 @@ export const products = [
     tags: ['XV Años', "Hexagonal"]
   },
 ]
+
+
+export const defaultImg = [
+  { src: "/products/default.jpg", alt: "sin imagen"  }
+]
