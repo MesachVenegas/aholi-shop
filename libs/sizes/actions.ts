@@ -1,25 +1,47 @@
 'use server'
 
 import { revalidatePath } from "next/cache";
-import { prisma } from "../prisma";
+import prisma from "../prisma"
 
 
-export async function newCategory(data: Iterable<readonly [PropertyKey, any]>) {
-  const { name, description } = Object.fromEntries(data)
+export async function newSize(data: Iterable<readonly [PropertyKey, any]>) {
+  const { name, height, width, type } = Object.fromEntries(data);
+  const formData = Object.fromEntries(data);
+  console.log(formData);
 
   try {
-    const category = await prisma.category.create({
+    const size = await prisma.sizes.create({
       data: {
         name: name,
-        description: description
+        height: height,
+        width: width,
+        type: type
       }
     })
 
-    if(category) {
+    if(size){
       revalidatePath('/admin/tags')
-      console.log(category);
+      return size;
     }
   } catch (error) {
-    return error;
+    throw error;
+  }
+}
+
+
+export async function removeSize(id:number) {
+  try {
+    const size = await prisma.sizes.delete({
+      where: {
+        id: id
+      }
+    })
+
+    if(size){
+      revalidatePath('/admin/tags');
+      return size;
+    }
+  } catch (error) {
+    throw error;
   }
 }
