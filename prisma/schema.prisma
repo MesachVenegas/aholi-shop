@@ -59,11 +59,11 @@ model VerificationRequest {
 model Products {
   id String @id @default(cuid())
   name String @unique
-  price Int @default(0)
+  price Decimal @default(0)
   sizeId Int
   categoryId Int
   description String
-  images String
+  images String @default("/products/default.jpg")
   category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
   size Sizes @relation(fields: [sizeId], references: [id], onDelete: Cascade)
 }
