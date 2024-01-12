@@ -9,6 +9,7 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons"
 import { useForm, SubmitHandler } from "react-hook-form"
 import { getCategorySelect } from "@/libs/categories/fetching"
 import { getSizeSelect } from "@/libs/sizes/data"
+import { addProduct } from "@/libs/products/actions"
 
 export default function AddNewProduct() {
   const [images, setImages] = useState<ImagesProps[]>([])
@@ -16,9 +17,17 @@ export default function AddNewProduct() {
   const [sizes, setSizes] = useState<SizesProps[]>([])
   const { register, handleSubmit, formState: { errors } } = useForm<ProductFormPros>();
 
-  const handleForm: SubmitHandler<ProductFormPros> = (data) => {
-    console.log(data);
-    console.log(images);
+  const handleForm: SubmitHandler<ProductFormPros> = async (data) => {
+    // const formData = {
+    //   name: data.name,
+    //   description: data.description,
+    //   sizes: data.sizes,
+    //   category: data.category,
+    //   price: data.price,
+    //   images: images
+    // }
+
+    await addProduct(data)
   }
 
   const readMultipleImages = (e: any, indexInit: number) => {
@@ -172,7 +181,7 @@ export default function AddNewProduct() {
                 <option value="none">Select...</option>
                 {
                   categories.map( (category, index) => (
-                    <option key={index} value={category.name}>{category.name}</option>
+                    <option key={index} value={category.id}>{category.name}</option>
                   ))
                 }
               </select>
@@ -189,7 +198,7 @@ export default function AddNewProduct() {
                 <option value="none">Select...</option>
                 {
                   sizes.map( (size: SizesProps) => (
-                    <option key={size.id} value={size.name}>{size.height}x{size.width} cms {size.type}</option>
+                    <option key={size.id} value={size.id}>{size.height}x{size.width} cms {size.type}</option>
                   ))
                 }
               </select>
