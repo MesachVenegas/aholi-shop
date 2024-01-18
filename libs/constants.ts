@@ -6,7 +6,6 @@ export const menuLinks = [
   { name: 'Galeria', url: '/gallery', icon: faImages },
   { name: 'Tienda', url: '/shop', icon: faShop },
   { name: 'Contacto', url: '/contact', icon: faEnvelope },
-  { name: 'Admin', url: '/admin', icon: faUserTie },
 ]
 
 export const socialLinks = [
@@ -109,95 +108,6 @@ export const galleryImages = [
     alt: 'Bautizo',
   },
 ]
-
-
-export const categories = [
-  { name: 'Dia de las Madres', icon: ''},
-  { name: 'General', icon: ''},
-  { name: 'San Valentin', icon: ''},
-  { name: 'Boda', icon: ''},
-  { name: 'Aniversario Luctuoso', icon: ''},
-  { name: 'Baby Shower', icon: ''},
-  { name: 'Cumpleaños', icon: ''},
-  { name: 'Graduaciones', icon: ''},
-  { name: 'Jubilación', icon: ''},
-]
-
-export const products = [
-  {
-    title: 'Nombre del producto',
-    images: [
-      { src: '/images/decoration_1.jpg', description: 'descripcion_del_producto' },
-      { src: '/images/decoration_2.jpeg', description: 'descripcion_del_producto' },
-    ],
-    hight: '8',
-    width: '5',
-    description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Nul',
-    price: 15,
-    tags: ['XV Años', "Hexagonal"]
-  },
-  {
-    title: 'Nombre del producto',
-    images: [
-      { src: '/images/decoration_1.jpg', description: 'descripcion_del_producto' },
-      { src: '/images/decoration_2.jpeg', description: 'descripcion_del_producto' },
-    ],
-    hight: '8',
-    width: '5',
-    description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Nul',
-    price: 15,
-    tags: ['XV Años', "Hexagonal"]
-  },
-  {
-    title: 'Nombre del producto',
-    images: [
-      { src: '/images/decoration_1.jpg', description: 'descripcion_del_producto' },
-      { src: '/images/decoration_2.jpeg', description: 'descripcion_del_producto' },
-    ],
-    hight: '8',
-    width: '5',
-    description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Nul',
-    price: 9,
-    tags: ['XV Años', "Hexagonal"]
-  },
-  {
-    title: 'Nombre del producto',
-    images: [
-      { src: '/images/decoration_1.jpg', description: 'descripcion_del_producto' },
-      { src: '/images/decoration_2.jpeg', description: 'descripcion_del_producto' },
-    ],
-    hight: '8',
-    width: '5',
-    description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Nul',
-    price: 8,
-    tags: ['XV Años', "Hexagonal"]
-  },
-  {
-    title: 'Nombre del producto',
-    images: [
-      { src: '/images/decoration_1.jpg', description: 'descripcion_del_producto' },
-      { src: '/images/decoration_2.jpeg', description: 'descripcion_del_producto' },
-    ],
-    hight: '8',
-    width: '5',
-    description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Nul',
-    price: 15,
-    tags: ['XV Años', "Hexagonal"]
-  },
-  {
-    title: 'Nombre del producto',
-    images: [
-      { src: '/images/decoration_1.jpg', description: 'descripcion_del_producto' },
-      { src: '/images/decoration_2.jpeg', description: 'descripcion_del_producto' },
-    ],
-    hight: '8',
-    width: '5',
-    description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Nul',
-    price: 15,
-    tags: ['XV Años', "Hexagonal"]
-  },
-]
-
 
 export const defaultImg = [
   { src: "/products/default.jpg", alt: "sin imagen"  }
