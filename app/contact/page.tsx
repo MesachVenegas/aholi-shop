@@ -37,7 +37,7 @@ export default function ContactPage() {
         <CursiveTitle size="text-6xl">Mandanos un mensaje</CursiveTitle>
         <Title3>Detalles y Recuerdos para toda ocasion.</Title3>
         <div className="flex gap-12">
-          <div className="flex flex-col justify-center items-center ">
+          <div className="md:flex md:flex-col justify-center items-center hidden">
             <Image
               src='/assets/logo_aholi.png'
               width={500}
