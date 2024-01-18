@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <footer className="flex flex-wrap xl:flex-row gap-8 justify-around items-center w-full h-full 2xl:h-72 bg-rose-100 text-white font-bold p-4">
       <div className="w-full max-w-md">
-        <Link href='/'>
+        <Link href='/' prefetch={false}>
           <div className="relative w-56 h-64">
             <Image
               src='/assets/logo_aholi.png'
