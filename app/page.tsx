@@ -106,7 +106,7 @@ export default function Home() {
         <section className='flex flex-col justify-center items-center gap-8 mt-36'>
           <Title2 color='text-rose-700'>Contacto</Title2>
           <hr className='w-full text-rose-100'/>
-          <div className='flex w-full justify-between p-4'>
+          <div className='flex flex-col-reverse md:flex-row w-full justify-between p-4'>
             <ul className='flex flex-col gap-4 p-4'>
               <li className='flex flex-col gap-2'>
                 <Title5>
@@ -162,7 +162,7 @@ export default function Home() {
                 </ButtonLink>
               </li>
             </ul>
-            <figure className='hidden md:block w-full max-w-4xl h-[500px] relative border border-rose-100 rounded-figure overflow-hidden'>
+            <figure className='block w-full max-w-4xl h-[300px] md:h-[500px] relative border border-rose-100 rounded-figure overflow-hidden'>
               <Image
                 src='/images/decorations_san_valentin.jpeg'
                 fill={true} alt='aholi_asset'
