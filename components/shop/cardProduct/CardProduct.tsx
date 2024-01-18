@@ -1,7 +1,11 @@
+'use client'
+
+import Image from 'next/image'
 import { Title5 } from '@/components/ui'
 import { valueFormatter } from '@/libs/utils'
-import { ProductResponse } from '@/models/product'
-import Image from 'next/image'
+import { ProductResponse } from '@/types/product'
+import { faCartPlus, faTruckFast } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function CardProduct({
   prod
@@ -9,11 +13,12 @@ export default function CardProduct({
   prod: ProductResponse
 }) {
 
+
   return (
     <figure className="flex flex-col p-2 w-96 h-[500px] border border-rose-700 rounded-lg cursor-pointer">
       <div className="w-full h-[300px] relative">
         <Image
-          src={`${prod.images[0]?.url ? prod.images[0].url : '/products/default_img.png'}`}
+          src={`${prod.images[0]?.url ? prod.images[0].url : prod.images}`}
           fill={true}
           alt='alt'
         />
@@ -32,9 +37,16 @@ export default function CardProduct({
             { prod.category.name }
           </span>
         </div>
-        <button className="bg-rose-700/80 hover:bg-rose-700 p-2 rounded-md text-white w-full">
-          Comprar
-        </button>
+        <div className='flex flex-col md:flex-row gap-2 mt-5'>
+          <button type='button' className="flex justify-center items-center bg-rose-700/80 hover:bg-rose-700 p-2 rounded-md text-white w-full md:max-w-[200px] gap-2">
+            <FontAwesomeIcon icon={faTruckFast} className='w-5 h-5' />
+            Comprar
+          </button>
+          <button type='button' className="flex justify-center items-center bg-rose-700/80 hover:bg-rose-700 p-2 rounded-md text-white w-full md:max-w-[200px] gap-2">
+            <FontAwesomeIcon icon={faCartPlus} className='w-5 h-5' />
+            Agregar al carrito
+          </button>
+        </div>
       </figcaption>
     </figure>
   )
