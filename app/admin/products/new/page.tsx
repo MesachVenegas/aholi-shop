@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import { recursive } from "@/components/ui/fonts"
-import { CategoriesProps, ImagesProps, ProductFormPros, SizesProps } from "@/models/product"
+import { CategoriesProps, ImagesProps, ProductFormPros, SizesProps } from "@/types/product"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faXmark } from "@fortawesome/free-solid-svg-icons"
 import { useForm, SubmitHandler } from "react-hook-form"
