@@ -3,7 +3,7 @@
 
 import { revalidatePath } from 'next/cache';
 import prisma from '../prisma';
-import { ProductFormPros } from "@/models/product";
+import { ProductFormPros } from "@/types/product";
 import { redirect } from 'next/navigation';
 import { Prisma } from '@prisma/client';
 
