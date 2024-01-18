@@ -44,3 +44,15 @@
     border-top-right-radius: 50px;
     border-bottom-left-radius: 50px;
 }
+
+.dropdown {
+  @apply absolute right-0 top-full mt-3 w-full p-5 rounded-lg bg-white min-w-[210px] flex flex-col gap-2 justify-end items-end;
+}
+
+.dropdown_cart {
+  @apply absolute right-0 top-full mt-3 w-full p-5 rounded-lg bg-white min-w-[400px] flex flex-col gap-2 justify-start items-center shadow-2xl;
+}
+
+.dropdown_link {
+  @apply text-sm text-gray-900 hover:text-rose-100 font-medium;
+}
