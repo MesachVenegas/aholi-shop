@@ -1,7 +1,7 @@
 import Pagination from "@/components/pagination/Pagination";
 import SearchBar from "@/components/search/SearchBar";
 import SizesTable from "../tables/SizesTables";
-import { getCountSizes, getSizes } from "@/utils/sizes/data";
+import { getCountSizes, getSizes } from "@/libs/sizes/data";
 import AddSize from "../addTags/AddSize";
 
 

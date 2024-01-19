@@ -1,6 +1,6 @@
 'use client'
 
-import { removeSize } from "@/utils/sizes/actions";
+import { removeSize } from "@/libs/sizes/actions";
 import { SizesProps } from "@/types/product";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

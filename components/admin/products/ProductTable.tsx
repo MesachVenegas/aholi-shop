@@ -1,4 +1,4 @@
-import { valueFormatter } from "@/utils/utils";
+import { valueFormatter } from "@/libs/utils";
 import { ProductResponse } from "@/types/product";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

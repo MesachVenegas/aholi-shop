@@ -1,6 +1,6 @@
 'use client'
 
-import { delCategory } from "@/utils/categories/actions"
+import { delCategory } from "@/libs/categories/actions"
 import { CategoriesProps } from "@/types/product"
 import { faTrash } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"

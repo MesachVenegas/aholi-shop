@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Gallery } from 'react-grid-gallery';
-import { galleryImages } from '@/utils/constants';
+import { galleryImages } from '@/libs/constants';
 import Lightbox from 'react-spring-lightbox';
 import LightBoxHeader from './HeaderLightBox/LightBoxHeader';
 
