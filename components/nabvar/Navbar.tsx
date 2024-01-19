@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
-import { menuLinks } from "@/utils/constants";
+import { menuLinks } from "@/libs/constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBagShopping, faDoorClosed, faDoorOpen } from "@fortawesome/free-solid-svg-icons";
 import { Title5 } from "../ui";
