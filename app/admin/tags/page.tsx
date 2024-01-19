@@ -2,7 +2,7 @@ import CategorySection from '@/components/admin/tags/section/CategorySection'
 import SizesSection from '@/components/admin/tags/section/SizesSection'
 
 
-export default function CategoriesAdmin({ searchParams }: { searchParams: {search: string, page: number}}) {
+export default function CategoriesAdmin({ searchParams }: { searchParams: {category: string, page: number, size: string}}) {
 
 
   return (
