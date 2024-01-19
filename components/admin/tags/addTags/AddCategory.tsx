@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { faAdd, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { newCategory } from "@/libs/categories/actions";
+import { newCategory } from "@/utils/categories/actions";
 
 export default function AddCategory() {
   const [isOpen, setIsOpen] = useState<boolean>(false);

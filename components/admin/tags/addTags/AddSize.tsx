@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { faAdd, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { newSize } from '@/libs/sizes/actions';
+import { newSize } from '@/utils/sizes/actions';
 
 export default function AddSize() {
   const [isOpen, setIsOpen] = useState<boolean>(false);

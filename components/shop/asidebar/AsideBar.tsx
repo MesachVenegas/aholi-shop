@@ -1,6 +1,6 @@
 import { Title4 } from "@/components/ui";
 import AsideButton from "@/components/ui/AsideButton";
-import { getCategorySelect } from "@/libs/categories/fetching";
+import { getCategorySelect } from "@/utils/categories/fetching";
 
 
 export default async function AsideBar() {

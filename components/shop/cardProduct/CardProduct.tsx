@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { Title5 } from '@/components/ui'
-import { valueFormatter } from '@/libs/utils'
+import { valueFormatter } from '@/utils/utils'
 import { ProductResponse } from '@/types/product'
 import { faCartPlus, faTruckFast } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

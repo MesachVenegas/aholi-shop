@@ -1,7 +1,7 @@
 import SearchBar from "@/components/search/SearchBar";
 import CategoriesTable from "../tables/CategoriesTable";
 import Pagination from "@/components/pagination/Pagination";
-import { getCategories, getCountCategories } from "@/libs/categories/fetching";
+import { getCategories, getCountCategories } from "@/utils/categories/fetching";
 import AddCategory from "../addTags/AddCategory";
 
 export default async function CategorySection({ searchParams }: { searchParams: { category: string, page: number}}) {

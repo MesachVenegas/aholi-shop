@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Title5 } from "../ui";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { menuLinks, socialLinks } from "@/libs/constants";
+import { menuLinks, socialLinks } from "@/utils/constants";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 export default function Footer() {

@@ -1,7 +1,7 @@
 'use client'
 
-import { delCategory } from "@/libs/categories/actions"
-import { CategoriesProps } from "@/models/product"
+import { delCategory } from "@/utils/categories/actions"
+import { CategoriesProps } from "@/types/product"
 import { faTrash } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Card, Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow, Text, Title } from "@tremor/react"

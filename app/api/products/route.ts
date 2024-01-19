@@ -10,7 +10,7 @@ import prisma from "@/libs/prisma";
  */
 export async function POST(req: Request){
   const { search , page } = await req.json();
-  const productsPerPage = 8;
+  const productsPerPage = 9;
 
   try {
     const products = await prisma.products.findMany({
@@ -35,5 +35,17 @@ export async function POST(req: Request){
       error: error
     }, { status: 500 })
   }
-  // return Response.json('Obteniendo productos')
+}
+
+export async function GET(){
+  try {
+    const count = await prisma.products.count();
+
+    return NextResponse.json(count)
+  } catch (error) {
+    return NextResponse.json({
+      message: "Ocurrió un error al obtener los productos",
+      error: error
+    }, { status: 500 })
+  }
 }

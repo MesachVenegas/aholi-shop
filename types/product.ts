@@ -57,7 +57,7 @@ export type ProductFormPros = {
   sizes: string;
   category: string;
   description: string;
-  images: ImagesProps[];
+  images: string | Blob;
 }
 
 

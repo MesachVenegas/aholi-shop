@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
-import { menuLinks } from "@/libs/constants";
+import { menuLinks } from "@/utils/constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBagShopping, faDoorClosed, faDoorOpen } from "@fortawesome/free-solid-svg-icons";
 import { Title5 } from "../ui";
@@ -117,14 +117,14 @@ export default function Navbar() {
                         <hr className="bg-rose-100 w-full h-[2px]" />
                         {/* Profile menu */}
                         <Link
-                          href='/auth/user/profile'
+                          href={`/user/${userData?.id}/profile`}
                           className="dropdown_link"
                           onClick={() => setToggleMenu(false)}
                         >
                           Mi Perfil
                         </Link>
                         <Link
-                          href='/auth/user/orders'
+                          href={`/user/${userData?.id}/orders`}
                           className="dropdown_link"
                           onClick={() => setToggleMenu(false)}
                         >
@@ -220,10 +220,10 @@ export default function Navbar() {
                         }
                         <hr className="bg-rose-100 w-full h-[2px]" />
                         {/* Profile menu */}
-                        <Link href='/auth/user/profile' className="dropdown_link">
+                        <Link href={`/user/${userData?.id}/profile`} className="dropdown_link">
                           Mi Perfil
                         </Link>
-                        <Link href='/auth/user/orders' className="dropdown_link">
+                        <Link href={`/user/${userData?.id}/orders`} className="dropdown_link">
                           Mis pedidos
                         </Link>
                         {

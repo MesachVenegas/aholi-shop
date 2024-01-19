@@ -2,7 +2,7 @@
  * Initializes a global instance of the PrismaClient from the @prisma/client package.
  *
  * @remarks
- * This code snippet exports a `prisma` object that can be used to interact with the database using Prisma.
+ * This code exports a `prisma` object that can be used to interact with the database using Prisma.
  * It checks if a global `prisma` object already exists, and if not, creates a new instance of PrismaClient.
  * In development mode, it assigns the `prisma` object to the global scope for easy access.
  *

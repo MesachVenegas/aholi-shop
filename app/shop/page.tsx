@@ -12,6 +12,7 @@ export default function ShopPage({ searchParams }: { searchParams: { product: st
   const search = searchParams?.product || '';
   const page = searchParams?.page || 1;
   const [products, setProducts] = useState<ProductResponse[]>([])
+  const [count, setCount] = useState<number>(0)
 
   const getProducts = async (search: string, page: number) => {
     try {
@@ -27,8 +28,23 @@ export default function ShopPage({ searchParams }: { searchParams: { product: st
     }
   }
 
+  const getProductCount = async () => {
+    try {
+      const res = await fetch('/api/products', {
+        method: 'GET'
+      })
+
+      const count = await res.json();
+      setCount(count)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
   useEffect(  () => {
     getProducts(search, page)
+    getProductCount()
   },[search, page])
 
   return (
@@ -47,7 +63,7 @@ export default function ShopPage({ searchParams }: { searchParams: { product: st
         }
       </div>
       <div className="flex items-center w-full max-w-7xl">
-        <Pagination count={0} />
+        <Pagination count={count} />
       </div>
     </div>
   )

@@ -1,7 +1,5 @@
-'use client'
-
-import { valueFormatter } from "@/libs/utils";
-import { ProductProps } from "@/models/product";
+import { valueFormatter } from "@/utils/utils";
+import { ProductResponse } from "@/types/product";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -17,7 +15,7 @@ import {
 } from "@tremor/react";
 
 
-export default function ProductsTable ({ title, tableData } : { title: string, tableData: ProductProps[] }){
+export default function ProductsTable ({ title, tableData } : { title: string, tableData: ProductResponse[] }){
 
 
   return (
@@ -34,7 +32,7 @@ export default function ProductsTable ({ title, tableData } : { title: string, t
           </TableRow>
         </TableHead>
         <TableBody>
-          {tableData.map((prod: ProductProps, index) => (
+          {tableData.map((prod: ProductResponse, index) => (
             <TableRow key={index} className="hover:bg-rose-100/10">
               <TableCell>{prod.name}</TableCell>
               <TableCell>
