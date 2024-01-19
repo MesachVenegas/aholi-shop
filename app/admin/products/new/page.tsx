@@ -2,61 +2,40 @@
 
 import { useEffect, useState } from "react"
 import Image from "next/image"
-import { recursive } from "@/components/ui/fonts"
-import { CategoriesProps, ImagesProps, ProductFormPros, SizesProps } from "@/types/product"
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faXmark } from "@fortawesome/free-solid-svg-icons"
 import { useForm, SubmitHandler } from "react-hook-form"
+import axios from 'axios'
+
+import { recursive } from "@/components/ui/fonts"
+import { CategoriesProps, ImagesProps, ProductFormPros, SizesProps } from "@/types/product"
 import { getCategorySelect } from "@/libs/categories/fetching"
 import { getSizeSelect } from "@/libs/sizes/data"
 import { addProduct } from "@/libs/products/actions"
 
 export default function AddNewProduct() {
-  const [images, setImages] = useState<ImagesProps[]>([])
   const [categories, setCategories] = useState<CategoriesProps[]>([])
+  const [image, setImage] = useState()
   const [sizes, setSizes] = useState<SizesProps[]>([])
   const { register, handleSubmit, formState: { errors } } = useForm<ProductFormPros>();
 
   const handleForm: SubmitHandler<ProductFormPros> = async (data) => {
-    // const formData = {
-    //   name: data.name,
-    //   description: data.description,
-    //   sizes: data.sizes,
-    //   category: data.category,
-    //   price: data.price,
-    //   images: images
-    // }
+    const formData = new FormData();
+    formData.append('name', data.name);
+    formData.append('description', data.description);
+    formData.append('price', data.price);
+    formData.append('category', data.category);
+    formData.append('size', data.sizes);
+    formData.append('images', data.image );
 
-    await addProduct(data)
-  }
+    const res = await axios.post('/api/products/create', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    });
 
-  const readMultipleImages = (e: any, indexInit: number) => {
-    const files = e.currentTarget.files;
-    const imagesArray:ImagesProps[] = [];
-
-    Object.keys(files).forEach( index => {
-      const file = files[index];
-      let url = URL.createObjectURL(file);
-
-      imagesArray.push({
-        index: indexInit,
-        name: file.name,
-        url,
-        file
-      });
-
-      indexInit++;
-    })
-
-    return imagesArray;
-  }
-
-  const deleteImg = (index: number) => {
-    const newImgs = images.filter( (element: ImagesProps) => {
-      return element.index !== index;
-    })
-
-    setImages(newImgs);
+    console.log(res);
   }
 
   const loadCategories = async () => {
@@ -75,20 +54,6 @@ export default function AddNewProduct() {
       .catch(err => console.error(err))
   }
 
-  const changeInput = (e: any) => {
-    let indexImg;
-
-    if(images.length > 0) {
-      indexImg = images[images.length - 1].index + 1;
-    } else {
-      indexImg = 0
-    }
-
-    let newImgsToState = readMultipleImages(e, indexImg);
-    let newImageState = [...images, ...newImgsToState];
-    setImages(newImageState);
-
-  }
 
 
   useEffect( () => {
@@ -112,29 +77,34 @@ export default function AddNewProduct() {
                   title="images"
                   draggable
                   multiple
-                  onChange={ changeInput }
+                  onChange={ e => setImage(e.target.files[0]) }
                 />
                 <div className="flex flex-wrap gap-2 w-full h-full">
+                  {
+                    image && (
+                      <Image
+                        src={URL.createObjectURL(image)}
+                        width={200}
+                        height={200}
+                        alt={image.name}
+                      />
+                    )
+                  }
                     {
-                      images.map( (image) => (
-                        <div key={image.index} className="flex relative w-48 h-48">
-                          <div className="flex w-full justify-end items-center absolute text-white p-1">
-                            <button
-                              aria-label="close"
-                              className="flex justify-center items-center w-[16px] h-[16px] bg-red-600"
-                              onClick={ () => deleteImg(image.index)}
-                            >
-                              <FontAwesomeIcon icon={faXmark} className="w-4 h-4"/>
-                            </button>
-                          </div>
-                          <Image
-                            src={image.url}
-                            width={200}
-                            height={200}
-                            alt={image.name}
-                          />
-                        </div>
-                      ))
+                      // images.map( (image) => (
+                      //   <div key={image.index} className="flex relative w-48 h-48">
+                      //     <div className="flex w-full justify-end items-center absolute text-white p-1">
+                      //       <button
+                      //         aria-label="close"
+                      //         className="flex justify-center items-center w-[16px] h-[16px] bg-red-600"
+                      //         onClick={ () => deleteImg(image.index)}
+                      //       >
+                      //         <FontAwesomeIcon icon={faXmark} className="w-4 h-4"/>
+                      //       </button>
+                      //     </div>
+                      //     
+                      //   </div>
+                      // ))
                     }
                 </div>
             </div>
