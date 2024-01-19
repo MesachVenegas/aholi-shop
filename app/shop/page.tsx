@@ -1,13 +1,35 @@
-import { ProductResponse } from "@/models/product";
-import SearchBar from "@/components/search/SearchBar";
-import { getProducts } from "@/libs/products/fetching";
-import Pagination from "@/components/pagination/Pagination";
-import CardProduct from "@/components/shop/cardProduct/CardProduct";
+'use client'
 
-export default async function ShopPage({ searchParams }: { searchParams: { product: string, page: number }}) {
+import SearchBar from "@/components/search/SearchBar";
+import Pagination from "@/components/pagination/Pagination";
+import CardProducts from "@/components/shop/cardProduct/CardProduct";
+import { useEffect, useState } from "react";
+import { ProductResponse } from "@/types/product";
+
+
+
+export default function ShopPage({ searchParams }: { searchParams: { product: string, page: number }}) {
   const search = searchParams?.product || '';
   const page = searchParams?.page || 1;
-  const products = await getProducts(search, page);
+  const [products, setProducts] = useState<ProductResponse[]>([])
+
+  const getProducts = async (search: string, page: number) => {
+    try {
+      const response = await fetch('/api/products', {
+        method: "POST",
+        body: JSON.stringify({search,page})
+      })
+
+      const products = await response.json();
+      setProducts(products)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(  () => {
+    getProducts(search, page)
+  },[search, page])
 
   return (
     <div className="flex flex-col justify-center items-center p-4  pb-12">
@@ -19,8 +41,8 @@ export default async function ShopPage({ searchParams }: { searchParams: { produ
       </div>
       <div className="flex flex-wrap justify-center xl:justify-start w-full gap-8 p-8">
         {
-          products.map( (product) => (
-            <CardProduct key={product.id} prod={product as unknown as ProductResponse} />
+          products.map( (product: ProductResponse) => (
+            <CardProducts prod={product} key={product.id} />
           ))
         }
       </div>
