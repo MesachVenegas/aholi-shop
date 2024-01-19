@@ -27,7 +27,7 @@ export default function AddNewProduct() {
     formData.append('price', data.price);
     formData.append('category', data.category);
     formData.append('size', data.sizes);
-    formData.append('images', data.image );
+    formData.append('images', data.images );
 
     const res = await axios.post('/api/products/create', formData, {
       headers: {
@@ -77,19 +77,19 @@ export default function AddNewProduct() {
                   title="images"
                   draggable
                   multiple
-                  onChange={ e => setImage(e.target.files[0]) }
+                  // onChange={ e => setImage(e?.target?.files[0]) }
                 />
                 <div className="flex flex-wrap gap-2 w-full h-full">
-                  {
+                  {/* {
                     image && (
                       <Image
                         src={URL.createObjectURL(image)}
                         width={200}
                         height={200}
-                        alt={image.name}
+                        alt={image?.name}
                       />
                     )
-                  }
+                  } */}
                     {
                       // images.map( (image) => (
                       //   <div key={image.index} className="flex relative w-48 h-48">
@@ -102,7 +102,7 @@ export default function AddNewProduct() {
                       //         <FontAwesomeIcon icon={faXmark} className="w-4 h-4"/>
                       //       </button>
                       //     </div>
-                      //     
+                      //
                       //   </div>
                       // ))
                     }
