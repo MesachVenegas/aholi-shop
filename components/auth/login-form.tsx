@@ -2,6 +2,7 @@
 
 
 import { useTransition, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import * as z from 'zod';
 import { useForm } from "react-hook-form";
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -22,9 +23,11 @@ import { login } from '@/actions/login';
 
 
 function LoginForm() {
+  const searchParams = useSearchParams();
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState<string | undefined>('');
   const [success, setSuccess] = useState<string | undefined>('');
+  const urlError = searchParams.get('error') === 'OAuthAccountNotLinked' ? "La cuenta ya esta asociada a un provedor" : "";
 
   const form = useForm<z.infer<typeof LoginSchema>>({
     resolver: zodResolver(LoginSchema),
@@ -41,8 +44,9 @@ function LoginForm() {
     startTransition(() => {
       login(data)
         .then( res => {
-          setError(res.error);
-          setSuccess(res.success);
+          setError(res?.error);
+          // TODO: Add when add 2FA
+          // setSuccess(res?.success);
         })
     });
   }
@@ -98,7 +102,7 @@ function LoginForm() {
 
             </FormField>
           </div>
-          <FormError message={error} />
+          <FormError message={error || urlError} />
           <FormSuccess message={success} />
           <button
             type="submit"
