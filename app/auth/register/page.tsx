@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function RegisterPage() {
 
   return (
-    <main className="flex w-full justify-center items-center h-[80vh] p-4 py-12 xl:p-16">
+    <main className="flex w-full justify-center items-center p-4 py-12 xl:p-16">
       <div className="hidden xl:flex  relative flex-col w-full h-full bg-white  max-w-xl justify-center items-center overflow-hidden">
         <Image
           src='/assets/bg_contact.jpeg'
