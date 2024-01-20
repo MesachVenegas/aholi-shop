@@ -29,13 +29,6 @@ model Account {
   @@unique([provider, providerAccountId])
 }
 
-model Session {
-  id           String   @id @default(cuid())
-  sessionToken String   @unique
-  userId       String
-  expires      DateTime
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-}
 model User {
   id String @id @default(cuid())
   name String?
@@ -43,12 +36,10 @@ model User {
   emailVerified DateTime?
   image String?
   password String?
-  provider String?
-  role String @default("user")
+  role Role? @default(user)
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
   accounts Account[]
-  sessions Session[]
 }
 
 model VerificationToken {
@@ -94,4 +85,9 @@ model Sizes {
   height String
   type String
   products Products[]
+}
+
+enum Role {
+  user
+  admin
 }
