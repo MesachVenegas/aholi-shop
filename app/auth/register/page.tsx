@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Metadata } from "next";
-import RegisterForm from "@/components/login/RegisterForm";
+import RegisterForm from "@/components/auth/register-form";
 
 export const metadata: Metadata = {
   title: 'Aholi | Registrarse',

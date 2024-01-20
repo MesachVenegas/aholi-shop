@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Metadata } from "next";
-import LoginForm from "@/components/login/Login";
+import LoginForm from "@/components/auth/login-form";
+import CardWrapper from "@/components/auth/card-wrapper";
 
 export const metadata: Metadata = {
   title: 'Aholi | Iniciar Sesión',
@@ -11,12 +12,13 @@ export const metadata: Metadata = {
 export default function LoginPage() {
 
   return (
-    <main className="flex w-full justify-center items-center h-[80vh] p-4 py-12 xl:p-16">
-      <div className="hidden xl:flex  relative flex-col w-full h-full bg-white  max-w-xl justify-center items-center overflow-hidden">
+    <main className="flex w-full justify-center items-center p-4 py-12 xl:p-16">
+      <div className="hidden lg:flex  relative flex-col w-full h-full bg-white  max-w-xl justify-center items-center overflow-hidden">
         <Image
           src='/assets/bg_contact.jpeg'
           className="absolute z-0"
           fill={true}
+          sizes="(min)"
           alt="bg_login"
           style={{ objectFit: 'cover'}}
         />
@@ -30,7 +32,6 @@ export default function LoginPage() {
           />
         </div>
       </div>
-
       <LoginForm />
     </main>
   )
