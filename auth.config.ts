@@ -10,10 +10,10 @@ import { getUserByEmail } from "./data/user";
 
 export default {
     providers: [
-        // Google({
-        //   clientId: process.env.GOOGLE_ID,
-        //   clientSecret: process.env.GOOGLE_SECRET,
-        // })
+        Google({
+            clientId: process.env.GOOGLE_ID,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        }),
         Credentials({
             async authorize(credentials) {
                 // ? Validate form fields
