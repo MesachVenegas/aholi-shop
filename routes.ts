@@ -7,7 +7,7 @@ export const publicRoutes = [
   "/",
   "/gallery",
   "/contact",
-  "/shop"
+  "/shop",
 ]
 
 /**
@@ -17,6 +17,7 @@ export const publicRoutes = [
 export const authRoutes = [
   "/auth/login",
   "/auth/register",
+  "/auth/error"
 ]
 
 /**
