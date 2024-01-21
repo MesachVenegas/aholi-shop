@@ -1,67 +1,36 @@
-'use client'
-
-import { useEffect, useState } from 'react'
-
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { ButtonLink } from '@/components/ui/ButtonLink'
 import SearchBar from '@/components/SearchBar'
 import Pagination from '@/components/Pagination'
-import { ProductResponse } from '@/types/product'
+import { ButtonLink } from '@/components/ui/ButtonLink'
 import ProductsTable from '@/app/(protected)/_components/ProductTable';
+import { getProductsPagination, getProductsSearch } from '@/data/products'
+import { ProductProps } from '@/types/product'
 
-export default function ProductsAdmin({ searchParams }: { searchParams: { product: string, page: number} }) {
-  const search = searchParams?.product || '';
-  const page = searchParams?.page || 1;
-    const [products, setProducts] = useState<ProductResponse[]>([])
-  const [count, setCount] = useState<number>(0)
-
-  const getProducts = async (search: string, page: number) => {
-    try {
-      const response = await fetch('/api/products', {
-        method: "POST",
-        body: JSON.stringify({search,page})
-      })
-
-      const products = await response.json();
-      setProducts(products)
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  const getProductCount = async () => {
-    try {
-      const res = await fetch('/api/products', {
-        method: 'GET'
-      })
-
-      const count = await res.json();
-      setCount(count)
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  useEffect( () => {
-    getProducts(search, page)
-    getProductCount()
-  },[page, search])
-
+export default async function ProductsAdmin({ searchParams } : { searchParams: { product: string, page: string } }) {
+  const query = searchParams.product || "";
+  const page = searchParams.page || "1";
+  const products = await getProductsSearch(query, page);
+  const productsCount = await getProductsPagination();
 
   return (
     <article className='flex flex-col gap-4'>
-      <div className='flex justify-between py-3 px-6'>
+      <div className='flex justify-between px-2 gap-2'>
         <SearchBar placeholder='Buscar un producto' query='product' />
-        <ButtonLink href='/admin/products/new' className='flex items-center gap-2 font-bold bg-rose-100/80 hover:bg-rose-100 text-white px-3 py-2 rounded-md'>
+        <ButtonLink
+          href='/admin/products/new'
+          className='flex items-center gap-2 font-bold bg-rose-100/80 hover:bg-rose-100 text-white px-3 py-2 rounded-md'
+        >
           <FontAwesomeIcon icon={faPlus} className='w-4 h-4' />
-          Agregar producto
+          <p className='text-sm'>
+            Agregar producto
+          </p>
         </ButtonLink>
       </div>
-      <div className='flex flex-col justify-between bg-white rounded-lg shadow-xl min-h-[75vh] p-4'>
-        <ProductsTable title='Listado de productos' tableData={products} />
-        <Pagination count={count} />
+      <div className='flex flex-col justify-between bg-white rounded-lg shadow-xl h-full min-h-[75vh] py-4 p-1 mt-10'>
+        <ProductsTable data={products as ProductProps[]} />
+        <Pagination count={productsCount} />
       </div>
     </article>
   )
