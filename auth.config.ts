@@ -32,6 +32,7 @@ export default {
                     //? If match, return user
                     if (passwordMatch) return user;
                 }
+                return null;
             }
         })
     ]
