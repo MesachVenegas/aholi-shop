@@ -9,8 +9,8 @@ export default function SideBar() {
   const pathname = usePathname();
 
   return (
-    <aside className='flex flex-col w-full md:max-w-[250px] md:min-w-[200px] gap-8 sticky top-0 left-0 p-4 bg-lila-100/60 md:bg-lila-100 shadow-lg backdrop-blur-lg md:shadow-none z-30'>
-      <ul className='flex md:flex-col gap-2 w-full'>
+    <aside className='flex flex-col w-full lg:max-w-[250px] lg:min-w-[200px] gap-8 sticky top-0 left-0 p-4 bg-lila-100/60 md:bg-lila-100 shadow-lg backdrop-blur-lg md:shadow-none z-30'>
+      <ul className='flex lg:flex-col gap-2 w-full'>
         {
           adminMenu.map( link => (
             <li key={link.name} className='w-full'>
