@@ -1,12 +1,22 @@
 'use client'
 
-import Link from 'next/link'
-import Image from 'next/image'
-import { socialLinks } from '@/libs/constants'
-import { CardServices } from '@/components/cardService/CardServices'
-import { ButtonLink, CursiveTitle, Title2, Title3, Title5 } from '@/components/ui'
-import { faAt, faChevronRight, faClock, faLink, faMapLocation, faPaperPlane, faPhone } from '@fortawesome/free-solid-svg-icons'
+import Link from 'next/link';
+import Image from 'next/image';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faAt,
+  faChevronRight,
+  faClock,
+  faLink,
+  faMapLocation,
+  faPaperPlane,
+  faPhone
+} from '@fortawesome/free-solid-svg-icons';
+
+import { socialLinks } from '@/libs/constants'
+import { CardServices } from '@/components/CardServices'
+import { ButtonLink, CursiveTitle, Title2, Title3, Title5 } from '@/components/ui'
 
 export default function Home() {
 

@@ -23,10 +23,10 @@
 
 ## Shop
 
-* [ ]  Search filter
+* [X]  Search filter
 * [ ]  category filter
-* [ ]  product list
-* [ ]  user session
+* [X]  product list
+* [X]  user session
 * [ ]  shopping cart
 * [ ]  check out
 * [ ]  history

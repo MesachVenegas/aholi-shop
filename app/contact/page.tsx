@@ -1,16 +1,17 @@
 'use client'
 
 import { useState } from "react";
-import emailjs from '@emailjs/browser';
 import Image from "next/image";
-import { CursiveTitle, Title3 } from "@/components/ui";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { ContactFormProps } from "@/libs/definitions";
-import { Label } from "@/components/ui/Label";
+
+import emailjs from '@emailjs/browser';
 import { ClipLoader } from "react-spinners";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
-import EmailModal from "@/components/contact/EmailModal";
+
+import { ContactFormProps } from "@/libs/definitions";
+import { CursiveTitle, Title3 } from "@/components/ui";
+import EmailModal from "@/components/EmailModal";
 
 
 export default function ContactPage() {
@@ -47,7 +48,7 @@ export default function ContactPage() {
           </div>
           <form className="flex flex-col gap-2 justify-center items-center w-full rounded-lg" onSubmit={handleSubmit(sendMessage)}>
             <div className="w-full">
-              <Label>
+              <label>
                 Nombre
                 <input
                   className="bg-rose-700/50 px-3 py-1 rounded-lg text-white w-full max-w-sm"
@@ -55,30 +56,30 @@ export default function ContactPage() {
                   {...register('name', { required: true })}
                   autoFocus
                 />
-              </Label>
+              </label>
             </div>
             <div className="w-full">
-              <Label >
+              <label >
                 Correo Electrónico
                 <input
                   className="bg-rose-700/50 px-3 py-1 rounded-lg text-white w-full max-w-sm"
                   type="email"
                   {...register('email', { required: true })}
                 />
-              </Label>
+              </label>
             </div>
             <div className="w-full">
-              <Label >
+              <label >
                 Teléfono de contacto
                 <input
                   className="bg-rose-700/50 px-3 py-1 rounded-lg text-white w-full max-w-sm"
                   type="text"
                   {...register('phone', { required: true })}
                 />
-              </Label>
+              </label>
             </div>
             <div className="w-full">
-              <Label htmlFor="message" >
+              <label htmlFor="message" >
                 Mensaje
                 <textarea
                   className="w-full p-2 rounded-lg max-w-sm text-white bg-rose-700/50"
@@ -87,7 +88,7 @@ export default function ContactPage() {
                   rows={5}
                   {...register('message', { required: true })}
                 />
-              </Label>
+              </label>
             </div>
             <button className="flex gap-3 items-center justify-center w-full max-w-sm font-bold text-white py-2 px-6 text-lg rounded-lg bg-rose-700">
               {

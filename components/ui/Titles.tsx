@@ -1,4 +1,4 @@
-import { recursive } from './fonts'
+import { recursive } from '@/styles/fonts';
 
 export function Title2({ children, color } : { children: React.ReactNode, color?: string} ) {
   return (

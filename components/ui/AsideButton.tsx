@@ -1,5 +1,3 @@
-import React from "react";
-
 interface AsideButtonProps extends React.HTMLAttributes<HTMLButtonElement> {}
 
 export default function AsideButton({ children, ...props}: AsideButtonProps) {
