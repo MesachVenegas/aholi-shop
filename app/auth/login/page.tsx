@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Metadata } from "next";
 import LoginForm from "@/components/auth/login-form";
-import CardWrapper from "@/components/auth/card-wrapper";
 
 export const metadata: Metadata = {
   title: 'Aholi | Iniciar Sesión',
@@ -12,17 +11,9 @@ export const metadata: Metadata = {
 export default function LoginPage() {
 
   return (
-    <main className="flex w-full justify-center items-center p-4 py-12 xl:p-16">
-      <div className="hidden lg:flex  relative flex-col w-full h-full bg-white  max-w-xl justify-center items-center overflow-hidden">
-        <Image
-          src='/assets/bg_contact.jpeg'
-          className="absolute z-0"
-          fill={true}
-          sizes="(min)"
-          alt="bg_login"
-          style={{ objectFit: 'cover'}}
-        />
-        <div className="flex justify-center items-center w-full h-full backdrop-blur-sm z-20">
+    <main className="flex w-full h-full justify-center items-center py-16">
+      <div className="hidden lg:flex justify-center items-center flex-col bg-contact-img w-full max-w-xl h-full overflow-hidden rounded-lg p-10 relative">
+        <div className="backdrop-blur-sm bg-black/20 absolute w-full h-full top-0 left-0" />
           <Image
             src='/assets/logo_aholi.png'
             width={350}
@@ -30,7 +21,6 @@ export default function LoginPage() {
             alt="Aholi Logo"
             className="drop-shadow-2xl "
           />
-        </div>
       </div>
       <LoginForm />
     </main>

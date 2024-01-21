@@ -3,9 +3,12 @@
 
 import { useTransition, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
+
 import * as z from 'zod';
 import { useForm } from "react-hook-form";
 import { zodResolver } from '@hookform/resolvers/zod';
+
 import { LoginSchema } from '@/schemas';
 import {
   Form,
@@ -16,10 +19,11 @@ import {
   FormMessage
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/Input';
-import CardWrapper from './card-wrapper';
-import FormError from '../form-error';
-import FormSuccess from '../form-success';
+import CardWrapper from '@/components/auth/card-wrapper';
+import FormError from '@/components/form-error';
+import FormSuccess from '@/components/form-success';
 import { login } from '@/actions/login';
+import { Button } from '@/components/ui/button';
 
 
 function LoginForm() {
@@ -45,14 +49,13 @@ function LoginForm() {
       login(data)
         .then( res => {
           setError(res?.error);
-          // TODO: Add when add 2FA
-          // setSuccess(res?.success);
+          setSuccess(res?.success);
         })
     });
   }
 
   return (
-    <CardWrapper headerLabel="Iniciar Sesión" backButtonLabel="No tienes una cuenta?" backButtonHref="/auth/register"  showSocial>
+    <CardWrapper headerLabel="Iniciar Sesión" backButtonLabel="No tienes una cuenta?" backButtonHref="/auth/register"  showSocial showProviders>
       <Form {...form}>
         <form
           className='w-full max-w-sm space-y-6'
@@ -95,6 +98,16 @@ function LoginForm() {
                       type='password'
                     />
                   </FormControl>
+                  <Button
+                    size='sm'
+                    variant='link'
+                    asChild
+                    className='hover:text-rose-100 px-0'
+                  >
+                    <Link href='/auth/reset'>
+                      Olvidaste la contraseña?
+                    </Link>
+                  </Button>
                   <FormMessage />
                 </FormItem>
               )}

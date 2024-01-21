@@ -30,12 +30,16 @@ export const {
     }
   },
   callbacks: {
-    // async signIn({ user }){
-    //   const existingUser = await getUserById(user.id as string);
-    //   if(!existingUser || !existingUser.emailVerified){
-    //     return false;
-    //   }
-    // },
+    async signIn({ user, account }){
+      // ? Allow  OAuth without email verification
+      if(account?.provider !== "credentials") return true;
+      // ? Refuse access if account isn't verified
+      const existingUser = await getUserById(user.id as string);
+      if(!existingUser?.emailVerified) return false;
+      // TODO: Add 2FA check
+
+      return true
+    },
     async session({ session, token }) {
       if (token.sub && session.user) {
         session.user.id = token.sub;

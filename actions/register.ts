@@ -6,6 +6,7 @@ import prisma from '@/libs/prisma';
 import { RegisterSchema } from '@/schemas';
 import { getUserByEmail } from '@/data/user';
 import { generateVerificationToken } from '@/libs/tokens';
+import { sendVerificationEmail } from '@/libs/email';
 
 export const register = async (data: z.infer<typeof RegisterSchema>) => {
   const validateFields = RegisterSchema.safeParse(data);
@@ -32,8 +33,7 @@ export const register = async (data: z.infer<typeof RegisterSchema>) => {
   })
 
   const verificationToken = await generateVerificationToken(email);
+  await sendVerificationEmail(verificationToken.email, verificationToken.token);
 
-  // TODO Verification Email user creation
-
-  return { success: "Correo de confirmacion enviado" };
+  return { success: "Correo de confirmacion enviado, es posible que llego a la bandeja de correo no deseado" };
 }

@@ -30,8 +30,6 @@ export default function Navbar() {
     setUserData(user)
   }
 
-  console.log(session);
-
   useEffect( () => {
     if(user){
       getRole(user.email)

@@ -1,4 +1,4 @@
-import { getVerificationTokenByEmail } from '@/data/verication-token';
+import { getVerificationTokenByEmail } from '@/data/verification-token';
 import { v4 as uuidV4 } from 'uuid';
 import prisma from '@/libs/prisma';
 

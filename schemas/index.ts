@@ -9,8 +9,14 @@ export const LoginSchema = z.object({
   .min(1, {
     message: "Ingresa la contraseña"
   })
-
 });
+
+export const ResetPasswordSchema = z.object({
+  email: z.string()
+    .email({
+      message: "Correo invalido"
+    })
+})
 
 export const RegisterSchema = z.object({
   name: z.string({

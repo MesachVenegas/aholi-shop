@@ -53,7 +53,7 @@ function RegisterForm() {
       headerLabel="Registrarse"
       backButtonLabel="Ya tienes una cuenta?"
       backButtonHref="/auth/login"
-      showSocial
+      showProviders
     >
       <Form {...form}>
         <form

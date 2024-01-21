@@ -11,7 +11,8 @@ interface CardWrapperProps {
   children: React.ReactNode;
   headerLabel: string;
   backButtonLabel: string;
-  backButtonHref: string
+  backButtonHref: string;
+  showProviders?: boolean;
   showSocial?: boolean;
 }
 
@@ -20,10 +21,11 @@ const CardWrapper = ({
   headerLabel,
   backButtonLabel,
   backButtonHref,
+  showProviders,
   showSocial
 }: CardWrapperProps ) => {
   return (
-    <div className="flex flex-col w-full h-full max-w-2xl bg-white justify-center items-center gap-2 p-6 lg:-ml-12  rounded-[40px] z-20 shadow-2xl">
+    <div className="flex flex-col w-full h-full max-w-xl bg-white justify-center items-center gap-2 p-6 lg:-ml-12  rounded-[40px] z-20 shadow-2xl">
       <h2 className={`${recursive.className} text-2xl font-bold tracking-widest`}>
         {headerLabel}
       </h2>
@@ -33,7 +35,7 @@ const CardWrapper = ({
       </div>
 
       {
-        showSocial && (
+        showProviders && (
           <div className="w-full flex justify-center items-center mt-6">
             <Social />
           </div>
@@ -42,18 +44,23 @@ const CardWrapper = ({
 
       <div className="flex flex-col gap-12 justify-center items-center mt-5">
         <BackButton label={backButtonLabel} href={backButtonHref}/>
-        <ul className='flex flex-r gap-6'>
-          {
-            socialLinks.map( ({ name, url, icon }) => (
-              <li key={name}>
-                <Link href={url} className='text-rose-700 hover:text-rose-100'>
-                  <FontAwesomeIcon icon={icon} className='w-6 h-6'/>
-                </Link>
-              </li>
-            ))
-          }
-        </ul>
+        {
+          showSocial && (
+              <ul className='flex flex-r gap-6'>
+                {
+                  socialLinks.map( ({ name, url, icon }) => (
+                    <li key={name}>
+                      <Link href={url} className='text-rose-700 hover:text-rose-100'>
+                        <FontAwesomeIcon icon={icon} className='w-6 h-6'/>
+                      </Link>
+                    </li>
+                  ))
+                }
+              </ul>
+          )
+        }
       </div>
+
     </div>
   )
 }

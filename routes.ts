@@ -8,6 +8,7 @@ export const publicRoutes = [
   "/gallery",
   "/contact",
   "/shop",
+  "/auth/verification",
 ]
 
 /**
@@ -17,7 +18,8 @@ export const publicRoutes = [
 export const authRoutes = [
   "/auth/login",
   "/auth/register",
-  "/auth/error"
+  "/auth/error",
+  "/auth/reset",
 ]
 
 /**
