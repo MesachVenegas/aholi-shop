@@ -1,6 +1,7 @@
-import GalleryViewer from "@/components/Gallery/GalleryViewer";
-import { CursiveTitle } from "@/components/ui";
 import { Metadata } from "next";
+
+import { CursiveTitle } from "@/components/ui";
+import GalleryViewer from "@/components/Gallery/GalleryViewer";
 
 export const metadata: Metadata = {
   title: 'Aholi | Gallery',

@@ -1,15 +1,17 @@
 'use client'
 
 import { useState } from "react";
-import emailjs from '@emailjs/browser';
 import Image from "next/image";
-import { CursiveTitle, Title3 } from "@/components/ui";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { ContactFormProps } from "@/libs/definitions";
+
+import emailjs from '@emailjs/browser';
 import { ClipLoader } from "react-spinners";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
-import EmailModal from "@/components/contact/EmailModal";
+
+import { ContactFormProps } from "@/libs/definitions";
+import { CursiveTitle, Title3 } from "@/components/ui";
+import EmailModal from "@/components/EmailModal";
 
 
 export default function ContactPage() {

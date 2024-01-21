@@ -1,10 +1,12 @@
 'use client'
 
 import { useState } from 'react';
+
 import { Gallery } from 'react-grid-gallery';
-import { galleryImages } from '@/libs/constants';
 import Lightbox from 'react-spring-lightbox';
-import LightBoxHeader from './HeaderLightBox/LightBoxHeader';
+
+import { galleryImages } from '@/libs/constants';
+import LightBoxHeader from '@/components/Gallery/LightBoxHeader';
 
 export default function GalleryViewer() {
   const [index, setIndex] = useState(-1);

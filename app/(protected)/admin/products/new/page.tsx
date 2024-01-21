@@ -1,18 +1,14 @@
 'use client'
 
 import { useEffect, useState } from "react"
-import Image from "next/image"
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faXmark } from "@fortawesome/free-solid-svg-icons"
 import { useForm, SubmitHandler } from "react-hook-form"
 import axios from 'axios'
 
-import { recursive } from "@/components/ui/fonts"
-import { CategoriesProps, ImagesProps, ProductFormPros, SizesProps } from "@/types/product"
-import { getCategorySelect } from "@/libs/categories/fetching"
+import { recursive } from "@/styles/fonts"
 import { getSizeSelect } from "@/libs/sizes/data"
-import { addProduct } from "@/libs/products/actions"
+import { getCategorySelect } from "@/libs/categories/fetching"
+import { CategoriesProps, ProductFormPros, SizesProps } from "@/types/product"
 
 export default function AddNewProduct() {
   const [categories, setCategories] = useState<CategoriesProps[]>([])

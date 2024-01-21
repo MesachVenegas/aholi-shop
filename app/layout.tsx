@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
-import { inter } from '@/components/ui/fonts';
-import Navbar from '@/components/nabvar/Navbar';
-import Footer from '@/components/footer/Footer';
-import WhatsButton from '@/components/whatsbutton/WhatsButton';
 import { Analytics } from '@vercel/analytics/react';
-import { SessionProvider } from 'next-auth/react';
-import GoogleAnalytics from '@/components/googleAnalytics/GoogleAnalytics';
-import './globals.css'
+
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import WhatsButton from '@/components/WhatsButton';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 import AuthProvider from '@/components/AuthProvider';
+import { inter } from '@/styles/fonts';
+
+import '@/styles/globals.css'
 
 
 

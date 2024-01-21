@@ -3,7 +3,7 @@ import { redirect } from 'next/navigation';
 
 import { auth } from '@/auth';
 import { getUserByEmail } from '@/data/user';
-import SideBar from '@/components/admin/sidebar/SideBar';
+import SideBar from '@/app/(protected)/_components/SideBar';
 
 export const metadata: Metadata = {
   title: 'Panel de Administración',

@@ -1,4 +1,4 @@
-import { cedarville } from "./fonts"
+import { cedarville } from "@/styles/fonts";
 
 export const CursiveTitle = ({ children, size, color } : {children : string, size: string, color?: string}) => {
   return (

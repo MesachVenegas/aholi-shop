@@ -1,5 +1,5 @@
-import CategorySection from '@/components/admin/tags/section/CategorySection'
-import SizesSection from '@/components/admin/tags/section/SizesSection'
+import SizesSection from '@/app/(protected)/_components/SizesSection'
+import CategorySection from '@/app/(protected)/_components/CategorySection'
 
 
 export default function CategoriesAdmin({ searchParams }: { searchParams: {category: string, page: number, size: string}}) {

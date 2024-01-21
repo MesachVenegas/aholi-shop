@@ -1,4 +1,4 @@
-import { CursiveTitle } from './CursiveTitle';
+import { CursiveTitle } from '@/components/ui/CursiveTitle';
 import { ButtonLink } from '@/components/ui/ButtonLink';
 import { Title2, Title3, Title4, Title5 } from '@/components/ui/Titles'
 

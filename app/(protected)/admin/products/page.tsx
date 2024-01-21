@@ -1,13 +1,15 @@
 'use client'
 
-import ProductsTable from '@/components/admin/products/ProductTable'
-import Pagination from '@/components/pagination/Pagination'
-import SearchBar from '@/components/search/SearchBar'
-import { ButtonLink } from '@/components/ui'
-import { ProductResponse } from '@/types/product'
+import { useEffect, useState } from 'react'
+
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useEffect, useState } from 'react'
+
+import { ButtonLink } from '@/components/ui'
+import SearchBar from '@/components/SearchBar'
+import Pagination from '@/components/Pagination'
+import { ProductResponse } from '@/types/product'
+import ProductsTable from '@/app/(protected)/_components/ProductTable';
 
 export default function ProductsAdmin({ searchParams }: { searchParams: { product: string, page: number} }) {
   const search = searchParams?.product || '';

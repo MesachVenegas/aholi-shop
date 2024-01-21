@@ -1,4 +1,4 @@
-import AsideBar from "@/components/shop/asidebar/AsideBar";
+import AsideBar from "@/app/shop/_components/AsideBar";
 
 export default function layout({ children }: { children: React.ReactNode}) {
 

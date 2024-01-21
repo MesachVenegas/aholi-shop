@@ -1,10 +1,12 @@
 'use client'
 
-import SearchBar from "@/components/search/SearchBar";
-import Pagination from "@/components/pagination/Pagination";
-import CardProducts from "@/components/shop/cardProduct/CardProduct";
 import { useEffect, useState } from "react";
+
 import { ProductResponse } from "@/types/product";
+
+import SearchBar from "@/components/SearchBar";
+import Pagination from "@/components/Pagination";
+import CardProducts from "@/app/shop/_components/CardProduct";
 
 
 

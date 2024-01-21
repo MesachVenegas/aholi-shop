@@ -1,10 +1,12 @@
 'use client'
 
 import Link from "next/link";
-import { recursive } from "@/components/ui/fonts";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { recursive } from "@/styles/fonts";
 import Social from "@/components/auth/social";
 import { socialLinks } from "@/libs/constants";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import BackButton from "@/components/auth/back-button";
 
 interface CardWrapperProps {
