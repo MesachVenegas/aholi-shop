@@ -17,9 +17,9 @@ export default async function ProtectedAdminLayout({ children }: { children: Rea
     redirect('/error')
   }
   return (
-    <main className='flex flex-col md:flex-row'>
+    <main className='flex flex-col lg:flex-row'>
       <SideBar />
-      <div className='flex flex-col w-full min-h-screen p-4'>
+      <div className='flex flex-col w-full py-10 md:p-10'>
         {children}
       </div>
     </main>
