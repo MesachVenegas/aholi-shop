@@ -63,7 +63,7 @@ model VerificationToken {
 model Products {
   id            String      @id @default(cuid())
   name          String      @unique
-  price         Decimal     @default(0)
+  price         Int     @default(0)
   sizeId        Int
   categoryId    Int
   description   String
