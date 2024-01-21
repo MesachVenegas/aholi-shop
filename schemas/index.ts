@@ -30,8 +30,7 @@ export const RegisterSchema = z.object({
   })
   .min(3, {
     message: "Ingresa un nombre valido"
-  })
-  .toLowerCase(),
+  }),
   email: z.string({
     required_error: "Este campo es requerido"
   })
@@ -42,4 +41,15 @@ export const RegisterSchema = z.object({
   .min(6, {
     message: "La contraseña debe contener al menos 6 caracteres"
   })
+})
+
+export const AddProductSchema = z.object({
+  name: z.string().min(1,{
+    message: "Este campo es requerido"
+  }),
+  price: z.string(),
+  sizeId: z.string(),
+  categoryId: z.string(),
+  description: z.string(),
+  images: z.any()
 })
