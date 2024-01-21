@@ -53,19 +53,19 @@ export default function ProductsTable ({ data } : { data: ProductProps[]}){
         </TableHead>
         <TableBody>
           {data.map((prod: ProductProps) => (
-            <TableRow key={prod.id} className="hover:bg-rose-100/10">
-              <TableCell>{prod.name}</TableCell>
+            <TableRow key={prod?.id} className="hover:bg-rose-100/10">
+              <TableCell>{prod?.name}</TableCell>
               <TableCell>
-                <Text>{prod.description}</Text>
+                <Text>{prod?.description}</Text>
               </TableCell>
               <TableCell>
-                <Text>{prod.size.height}cms x {prod.size.width}cms</Text>
+                <Text>{prod?.size.height}cms x {prod?.size.width}cms</Text>
               </TableCell>
               <TableCell className="flex gap-2">
-                {prod.category.name}
+                {prod?.category.name}
               </TableCell>
               <TableCell>
-                  {valueFormatter(prod.price as unknown as number)}
+                  {valueFormatter(prod?.price as unknown as number)}
               </TableCell>
               <TableCell className="flex gap-3">
                   <span className="flex items-center gap-1 cursor-pointer text-rose-100">
