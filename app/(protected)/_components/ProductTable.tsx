@@ -1,7 +1,9 @@
-import { valueFormatter } from "@/libs/utils";
-import { ProductResponse } from "@/types/product";
-import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+'use client'
+
+import Image from "next/image";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import {
   Card,
   Table,
@@ -14,26 +16,44 @@ import {
   Title,
 } from "@tremor/react";
 
+import { valueFormatter } from "@/libs/utils";
+import { ProductProps } from "@/types/product";
 
-export default function ProductsTable ({ title, tableData } : { title: string, tableData: ProductResponse[] }){
 
+export default function ProductsTable ({ data } : { data: ProductProps[]}){
+
+
+  if(data.length === 0){
+    return (
+      <div className="flex flex-col w-full h-full justify-center items-center px-10">
+        <Image
+          src='/assets/empty_products.png'
+          width={360}
+          height={360}
+          alt="empty products"
+        />
+        <h2 className="text-2xl">No hay productos disponibles agrega un producto.</h2>
+      </div>
+    )
+  }
 
   return (
-    <Card>
-      <Title className="text-xl">{ title }</Title>
+    <Card className="flex flex-col w-full h-full overflow-auto">
+      <Title className="text-xl">Productos</Title>
       <Table className="mt-5">
         <TableHead>
-          <TableRow>
+          <TableRow className="bg-rose-100/20">
             <TableHeaderCell>Nombre</TableHeaderCell>
             <TableHeaderCell>Descripcion</TableHeaderCell>
             <TableHeaderCell>Medidas</TableHeaderCell>
             <TableHeaderCell>Categorías</TableHeaderCell>
             <TableHeaderCell>Precio</TableHeaderCell>
+            <TableHeaderCell></TableHeaderCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {tableData.map((prod: ProductResponse, index) => (
-            <TableRow key={index} className="hover:bg-rose-100/10">
+          {data.map((prod: ProductProps) => (
+            <TableRow key={prod.id} className="hover:bg-rose-100/10">
               <TableCell>{prod.name}</TableCell>
               <TableCell>
                 <Text>{prod.description}</Text>
@@ -45,7 +65,7 @@ export default function ProductsTable ({ title, tableData } : { title: string, t
                 {prod.category.name}
               </TableCell>
               <TableCell>
-                  {valueFormatter(prod.price)}
+                  {valueFormatter(prod.price as unknown as number)}
               </TableCell>
               <TableCell className="flex gap-3">
                   <span className="flex items-center gap-1 cursor-pointer text-rose-100">
