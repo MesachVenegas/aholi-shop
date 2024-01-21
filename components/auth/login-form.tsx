@@ -9,7 +9,6 @@ import * as z from 'zod';
 import { useForm } from "react-hook-form";
 import { zodResolver } from '@hookform/resolvers/zod';
 
-import { LoginSchema } from '@/schemas';
 import {
   Form,
   FormControl,
@@ -18,6 +17,7 @@ import {
   FormLabel,
   FormMessage
 } from '@/components/ui/form';
+import { LoginSchema } from '@/schemas';
 import { Input } from '@/components/ui/Input';
 import CardWrapper from '@/components/auth/card-wrapper';
 import FormError from '@/components/form-error';
