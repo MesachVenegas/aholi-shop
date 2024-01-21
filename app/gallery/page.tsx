@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-import { CursiveTitle } from "@/components/ui";
+import { CursiveTitle } from "@/components/ui/CursiveTitle";
 import GalleryViewer from "@/components/Gallery/GalleryViewer";
 
 export const metadata: Metadata = {

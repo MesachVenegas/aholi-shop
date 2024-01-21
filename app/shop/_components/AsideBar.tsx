@@ -1,4 +1,4 @@
-import { Title4 } from "@/components/ui";
+import { Title4 } from "@/components/ui/Titles";
 import AsideButton from "@/components/ui/AsideButton";
 import { getCategorySelect } from "@/libs/categories/fetching";
 

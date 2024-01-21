@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBagShopping, faDoorClosed, faDoorOpen } from "@fortawesome/free-solid-svg-icons";
 
 import { menuLinks } from "@/libs/constants";
-import { Title5 } from "@/components/ui";
+import { Title5 } from "@/components/ui/Titles";
 import { UserProfileProps } from "@/types/user";
 import { useCurrentUser } from "@/hooks/useCurrentUser";
 

@@ -16,7 +16,9 @@ import {
 
 import { socialLinks } from '@/libs/constants'
 import { CardServices } from '@/components/CardServices'
-import { ButtonLink, CursiveTitle, Title2, Title3, Title5 } from '@/components/ui'
+import {Title2, Title3, Title5 } from '@/components/ui/Titles'
+import { CursiveTitle } from '@/components/ui/CursiveTitle';
+import { ButtonLink } from '@/components/ui/ButtonLink';
 
 export default function Home() {
 

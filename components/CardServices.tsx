@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { Title4 } from "@/components/ui"
+import { Title4 } from "@/components/ui/Titles"
 
 export const CardServices = ({ title, content, source} : { title: string, content: string , source: string}) => {
   return (

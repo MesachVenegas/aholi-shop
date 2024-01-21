@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { Title5 } from '@/components/ui'
+import { Title5 } from '@/components/ui/Titles'
 import { valueFormatter } from '@/libs/utils'
 import { ProductResponse } from '@/types/product'
 import { faCartPlus, faTruckFast } from '@fortawesome/free-solid-svg-icons'

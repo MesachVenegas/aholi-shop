@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { ButtonLink } from '@/components/ui'
+import { ButtonLink } from '@/components/ui/ButtonLink'
 import SearchBar from '@/components/SearchBar'
 import Pagination from '@/components/Pagination'
 import { ProductResponse } from '@/types/product'

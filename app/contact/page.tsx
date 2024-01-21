@@ -10,7 +10,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
 import { ContactFormProps } from "@/libs/definitions";
-import { CursiveTitle, Title3 } from "@/components/ui";
+import { CursiveTitle } from "@/components/ui/CursiveTitle";
+import { Title3 } from "@/components/ui/Titles";
 import EmailModal from "@/components/EmailModal";
 
 
