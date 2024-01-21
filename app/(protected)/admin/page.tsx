@@ -1,12 +1,9 @@
-import { auth } from "@/auth"
 
 export default async function AdminPage() {
-  const session = await auth();
 
   return (
-    <>
-      session:
-      { JSON.stringify(session) }
-    </>
+    <div className="flex flex-col justify-center items-center p-4">
+      Dashboard Home Page
+    </div>
   )
 }

@@ -1,11 +1,21 @@
-import SideBar from '@/components/admin/sidebar/SideBar';
 import type { Metadata } from 'next';
+import { redirect } from 'next/navigation';
+
+import { auth } from '@/auth';
+import { getUserByEmail } from '@/data/user';
+import SideBar from '@/components/admin/sidebar/SideBar';
 
 export const metadata: Metadata = {
   title: 'Panel de Administración',
 }
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
+export default async function ProtectedAdminLayout({ children }: { children: React.ReactNode }) {
+  const session = await auth();
+  const user = await getUserByEmail(session?.user.email as string);
+
+  if(user?.role === 'user'){
+    redirect('/error')
+  }
   return (
     <main className='flex flex-col md:flex-row'>
       <SideBar />

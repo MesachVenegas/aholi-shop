@@ -3,22 +3,23 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { useSession, signOut } from "next-auth/react";
-import { menuLinks } from "@/libs/constants";
+import { usePathname } from "next/navigation";
+
+import { signOut } from "next-auth/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBagShopping, faDoorClosed, faDoorOpen } from "@fortawesome/free-solid-svg-icons";
-import { Title5 } from "../ui";
+
+import { menuLinks } from "@/libs/constants";
+import { Title5 } from "@/components/ui";
 import { UserProfileProps } from "@/types/user";
+import { useCurrentUser } from "@/hooks/useCurrentUser";
 
 export default function Navbar() {
   const pathname = usePathname();
-  const { data: session } = useSession();
-  const router = useRouter();
+  const user = useCurrentUser();
   const [toggleMenu, setToggleMenu] = useState(false);
   const [toggleCart, setToggleCart] = useState(false);
   const [ userData, setUserData] = useState<UserProfileProps>();
-  const user = session?.user;
 
   const getRole = async (data: string | undefined | null) => {
     const result = await fetch('/api/user', {
