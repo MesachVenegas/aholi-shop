@@ -1,6 +1,3 @@
-import { IconDefinition } from "@fortawesome/free-brands-svg-icons";
-import { Decimal } from "@prisma/client/runtime/library";
-
 export interface ProductProps {
   id: string;
   name: string;
