@@ -16,10 +16,13 @@ export default function SideBar() {
             <li key={link.name} className='w-full'>
               <Link
                 href={link.url}
-                className={`${pathname === link.url ? 'bg-rose-700 text-white' : null} flex items-center gap-2 py-2 px-2 rounded-md hover:bg-rose-100/50`}
+                title={link.name}
+                className={`${pathname === link.url ? 'bg-rose-700 text-white' : null} flex items-center justify-center sm:justify-start gap-2 py-2 px-2 rounded-md hover:bg-rose-100/50`}
               >
                 <FontAwesomeIcon icon={link.icon} className='w-5 h-5' />
-                {link.name}
+                <span className='hidden sm:block'>
+                  {link.name}
+                </span>
               </Link>
             </li>
           ))
