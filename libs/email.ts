@@ -1,3 +1,5 @@
+'use server'
+
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -17,5 +19,16 @@ export const sendVerificationEmail = async (email: string, token: string) => {
     to: email,
     subject: 'Confirmación de cuenta',
     html: `Valida tu cuenta con el siguiente enlace: <a href="${confirmLink}">Confirmar</a></>`
+  })
+}
+
+export const sendPasswordResetEmail = async (email: string, token: string) => {
+  const resetLink = `http://localhost:3000/auth/reset-password?token=${token}`;
+
+  await resend.emails.send({
+    from: 'ventas@aholi.shop',
+    to: email,
+    subject: 'Restauracion de password',
+    html: `Ingresa al enlace para continuar con el proceso de restauracion: <a href="${resetLink}">Restaurar</a></>`
   })
 }
