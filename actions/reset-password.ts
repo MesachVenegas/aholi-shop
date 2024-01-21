@@ -13,11 +13,10 @@ export const resetPasswordEmail = async (data: z.infer<typeof ResetPasswordSchem
 
   const { email } = validateFields.data;
   const existingUser = await getUserByEmail(email);
-  console.log(existingUser)
 
   if (!existingUser) {
     return { error: "Email no encontrado" }
   }
 
-  return { success: "Correo de re enviado" }
+  return { success: "Correo de restauracion enviado" }
 }
