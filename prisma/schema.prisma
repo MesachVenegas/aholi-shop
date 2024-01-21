@@ -30,20 +30,29 @@ model Account {
 }
 
 model User {
-  id String @id @default(cuid())
-  name String?
-  email String? @unique
-  emailVerified DateTime?
-  image String?
-  password String?
-  role Role? @default(user)
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
-  accounts Account[]
+  id              String    @id @default(cuid())
+  name            String?
+  email           String?   @unique
+  emailVerified   DateTime?
+  image           String?
+  password        String?
+  role            Role?     @default(user)
+  created_at      DateTime  @default(now())
+  updated_at      DateTime  @updatedAt
+  accounts        Account[]
+}
+
+model PasswordResetToke {
+  id      String    @id @default(cuid())
+  email   String
+  token   String    @unique
+  expires DateTime
+
+  @@unique([email, token])
 }
 
 model VerificationToken {
-  id        String @id @default(cuid())
+  id        String   @id @default(cuid())
   email     String
   token     String   @unique
   expires   DateTime
@@ -52,40 +61,41 @@ model VerificationToken {
 }
 
 model Products {
-  id String @id @default(cuid())
-  name String @unique
-  price Decimal @default(0)
-  sizeId Int
-  categoryId Int
-  description String
-  images String @default("/products/default.jpg")
-  category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
-  size Sizes @relation(fields: [sizeId], references: [id], onDelete: Cascade)
+  id            String      @id @default(cuid())
+  name          String      @unique
+  price         Decimal     @default(0)
+  sizeId        Int
+  categoryId    Int
+  description   String
+  images        String      @default("/products/default.jpg")
+
+  category  Category  @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  size      Sizes     @relation(fields: [sizeId], references: [id], onDelete: Cascade)
 }
 
 model ImagesGallery {
-  id Int @id @default(autoincrement())
-  src String
-  width Int
-  height Int
-  alt String
+  id        Int     @id @default(autoincrement())
+  src       String
+  width     Int
+  height    Int
+  alt       String
 }
 
 model Category {
-  id Int @id @default(autoincrement())
-  name String
-  icon String?
-  description String @default("")
-  products Products[]
+  id            Int         @id @default(autoincrement())
+  name          String
+  icon          String?
+  description   String      @default("")
+  products      Products[]
 }
 
 model Sizes {
-  id Int @id @default(autoincrement())
-  name String
-  width String
-  height String
-  type String
-  products Products[]
+  id          Int @id @default(autoincrement())
+  name        String
+  width       String
+  height      String
+  type        String
+  products    Products[]
 }
 
 enum Role {
