@@ -1,5 +1,3 @@
-[Aholi Logo](/public/assets/logo_aholi.png)
-
 # Aholi Ecommerce
 
 1. [X]  Home Page
@@ -18,8 +16,8 @@
 
 ## Gallery
 
-* [X]  Imagenes Muestra
-* [X]  Vizualizador de imagen individual
+* [X]  Imágenes Muestra
+* [X]  Visualizar de imagen individual
 
 ## Shop
 
@@ -30,10 +28,10 @@
 * [ ]  shopping cart
 * [ ]  check out
 * [ ]  history
-* [ ]  categorias
+* [ ]  categorías
 * [ ]  Tamaños
 
-Categorias
+Categorías
 
 * 10 Mayo
 * 14 Febrero
@@ -41,7 +39,7 @@ Categorias
 * Baby Showers
 * Cumpleaños
 * Graduaciones
-* Invitacion General
+* Invitación General
 * Jubilaciones
 * Primera Comunion y Confirmacion
 * Recuerdos de Boda
