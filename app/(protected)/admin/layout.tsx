@@ -19,7 +19,7 @@ export default async function ProtectedAdminLayout({ children }: { children: Rea
   return (
     <main className='flex flex-col lg:flex-row'>
       <SideBar />
-      <div className='flex flex-col w-full py-10 md:p-10'>
+      <div className='flex flex-col w-full overflow-auto py-10 xl:p-10'>
         {children}
       </div>
     </main>
