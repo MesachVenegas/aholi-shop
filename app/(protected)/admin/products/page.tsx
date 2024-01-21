@@ -16,7 +16,7 @@ export default async function ProductsAdmin({ searchParams } : { searchParams: {
 
   return (
     <article className='flex flex-col gap-4'>
-      <div className='flex justify-between px-2 gap-2'>
+      <div className='flex justify-between gap-6 px-2'>
         <SearchBar placeholder='Buscar un producto' query='product' />
         <ButtonLink
           href='/admin/products/new'
@@ -28,7 +28,7 @@ export default async function ProductsAdmin({ searchParams } : { searchParams: {
           </p>
         </ButtonLink>
       </div>
-      <div className='flex flex-col justify-between bg-white rounded-lg shadow-xl h-full min-h-[75vh] py-4 p-1 mt-10'>
+      <div className='flex flex-col justify-between bg-white rounded-lg shadow-xl h-full xl:min-h-[75vh] py-4 p-1 mt-10'>
         <ProductsTable data={products as ProductProps[]} />
         <Pagination count={productsCount} />
       </div>
