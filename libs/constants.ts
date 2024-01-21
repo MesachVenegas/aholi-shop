@@ -1,5 +1,5 @@
 import { faFacebook, faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import { faBoxOpen, faEnvelope, faHome, faImages, faLayerGroup, faShop, faTags, faUserTie } from "@fortawesome/free-solid-svg-icons";
+import { faBoxOpen, faEnvelope, faGear, faHome, faImages, faLayerGroup, faShop, faTags, faUserTie } from "@fortawesome/free-solid-svg-icons";
 
 export const menuLinks = [
   { name: 'Inicio', url: '/', icon: faHome },
@@ -19,6 +19,7 @@ export const adminMenu = [
   { name: 'Productos', url: '/admin/products' , icon: faBoxOpen },
   { name: 'Etiquetas', url: '/admin/tags' , icon: faTags },
   { name: 'Galeria', url: '/admin/gallery' , icon: faImages },
+  { name: 'Ajustes', url: '/admin/settings', icon: faGear },
 ]
 
 
