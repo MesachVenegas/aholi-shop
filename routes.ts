@@ -34,4 +34,4 @@ export const apiAuthPrefix = "/api/auth";
  * The default redirect after login
  * @type {string}
  */
-export const DEFAULT_LOGIN_LOGIN_REDIRECT = '/'
+export const DEFAULT_LOGIN_LOGIN_REDIRECT = 'www.aholi.shop'
