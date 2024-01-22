@@ -14,7 +14,6 @@ import {
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/Input';
@@ -65,7 +64,7 @@ function SetPasswordForm() {
               name='password'
               render={({field}) => (
                 <FormItem>
-                  <FormLabel>Nueva Contraseña</FormLabel>
+                  <label>Nueva Contraseña</label>
                   <FormControl>
                     <Input
                       {...field}
