@@ -21,7 +21,6 @@ import { Input } from '@/components/ui/Input';
 import CardWrapper from '@/components/auth/card-wrapper';
 import FormError from '@/components/form-error';
 import FormSuccess from '@/components/form-success';
-import { resetPasswordEmail } from '@/actions/reset-password-email';
 import { Button } from '@/components/ui/button';
 import { setNewPassword } from '@/actions/new-password';
 
