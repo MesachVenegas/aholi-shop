@@ -1,10 +1,10 @@
 import { Title4 } from "@/components/ui/Titles";
 import AsideButton from "@/components/ui/AsideButton";
-import { getCategorySelect } from "@/libs/categories/fetching";
+import { getAllCategories } from "@/data/categories";
 
 
 export default async function AsideBar() {
-  const categories = await getCategorySelect()
+  const categories = await getAllCategories()
 
 
   return (
@@ -16,7 +16,7 @@ export default async function AsideBar() {
         </div>
         <ul className="flex flex-wrap gap-2">
           {
-            categories.map((category) => (
+            categories?.map((category) => (
               <li key={category.id} >
                 <AsideButton>
                   { category.name }

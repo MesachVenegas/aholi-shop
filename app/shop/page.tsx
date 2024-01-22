@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import { ProductResponse } from "@/types/product";
+import { ProductProps } from "@/types/product";
 
 import SearchBar from "@/components/SearchBar";
 import Pagination from "@/components/Pagination";
@@ -13,7 +13,7 @@ import CardProducts from "@/app/shop/_components/CardProduct";
 export default function ShopPage({ searchParams }: { searchParams: { product: string, page: number }}) {
   const search = searchParams?.product || '';
   const page = searchParams?.page || 1;
-  const [products, setProducts] = useState<ProductResponse[]>([])
+  const [products, setProducts] = useState<ProductProps[]>([])
   const [count, setCount] = useState<number>(0)
 
   const getProducts = async (search: string, page: number) => {
@@ -59,8 +59,8 @@ export default function ShopPage({ searchParams }: { searchParams: { product: st
       </div>
       <div className="flex flex-wrap justify-center xl:justify-start w-full gap-8 p-8">
         {
-          products.map( (product: ProductResponse) => (
-            <CardProducts prod={product} key={product.id} />
+          products.map( (product) => (
+            <CardProducts prod={product} key={product?.id} />
           ))
         }
       </div>

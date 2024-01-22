@@ -1,7 +1,7 @@
 'use client'
 
 import { removeSize } from "@/libs/sizes/actions";
-import { SizesProps } from "@/types/product";
+import { SizesProps } from "@/types/size";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -38,20 +38,20 @@ export default function SizesTable ({ title, tableData } : { title: string, tabl
           </TableRow>
         </TableHead>
         <TableBody className="overflow-y-auto overflow-hidden">
-          {tableData.map((prod: SizesProps, index) => (
-            <TableRow key={index} className="hover:bg-rose-100/10">
-              <TableCell>{prod.name}</TableCell>
+          {tableData.map((prod: SizesProps) => (
+            <TableRow key={prod?.id} className="hover:bg-rose-100/10">
+              <TableCell>{prod?.name}</TableCell>
               <TableCell>
-                <Text>{prod.height} cms</Text>
+                <Text>{prod?.height} cms</Text>
               </TableCell>
               <TableCell>
-                <Text>{prod.width} cms</Text>
+                <Text>{prod?.width} cms</Text>
               </TableCell>
               <TableCell>
-                <Text>{prod.type}</Text>
+                <Text>{prod?.type}</Text>
               </TableCell>
               <TableCell className="flex gap-3">
-                  <span className="flex items-center gap-1 cursor-pointer text-red-600" onClick={() => rmSize(prod.id) }>
+                  <span className="flex items-center gap-1 cursor-pointer text-red-600" onClick={() => rmSize(prod?.id as number) }>
                     <FontAwesomeIcon icon={faTrash} className="w-4 h-4" />
                     Eliminar
                   </span>

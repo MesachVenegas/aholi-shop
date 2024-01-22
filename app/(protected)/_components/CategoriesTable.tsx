@@ -1,6 +1,5 @@
 'use client'
 
-import { CategoriesProps } from "@/types/product"
 import { faTrash } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
@@ -38,7 +37,7 @@ export default function CategoriesTable({ title, tableData }: { title: string, t
           </TableRow>
         </TableHead>
         <TableBody>
-          {tableData.map((prod: CategoriesProps) => (
+          {tableData.map((prod: any) => (
             <TableRow key={prod.id} className="hover:bg-rose-100/10">
               <TableCell>{prod.name}</TableCell>
               <TableCell>
