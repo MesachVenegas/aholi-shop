@@ -16,7 +16,7 @@ export type ProductProps = {
   category: {
     id: number;
     name: string;
-    icon: string;
+    icon: string | null;
     description: string;
   }
 } | undefined
