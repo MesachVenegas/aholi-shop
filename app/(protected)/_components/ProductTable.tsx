@@ -21,7 +21,6 @@ import { valueFormatter } from "@/libs/utils";
 import { ProductProps } from "@/types/product";
 import ToastNotification from "@/components/toast-notification";
 import { deleteProduct } from "@/actions/products";
-import { error } from "console";
 
 
 export default function ProductsTable ({ data } : { data: ProductProps[]}){
