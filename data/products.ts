@@ -1,6 +1,7 @@
 'use server'
 
 import prisma from "@/libs/prisma";
+import { ProductProps } from "@/types/product";
 
 
 /**
@@ -43,12 +44,37 @@ export const getProductsSearch = async (query: string, page: string) => {
  * @returns {Promise<number>} The total count of products.
  * @throws {Error} If there is an error while retrieving the data.
  */
-export const getProductsPagination = async () => {
+export const getProductsPagination = async (): Promise<number> => {
   try {
     const productsCount = await prisma.products.count();
 
     return productsCount;
   } catch (error) {
     throw new Error("Ocurrió un problema al obtener los datos")
+  }
+}
+
+
+
+/**
+ * Retrieves a product by its ID.
+ *
+ * @param id - The ID of the product to retrieve.
+ * @returns A Promise that resolves to the product object if found, or null if not found.
+ * @throws Error if the product is not found.
+ */
+export const getProductById = async (id: string): Promise<ProductProps | null> => {
+  try {
+    const product = await prisma.products.findUnique({
+      where: { id: id },
+      include: {
+        category: {},
+        size: {}
+      }
+    })
+
+    return product;
+  } catch (error) {
+    throw new Error("No se encontró el producto")
   }
 }
