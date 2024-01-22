@@ -23,8 +23,8 @@ export async function addProduct(data: z.infer<typeof AddProductSchema>) {
     throw new Error("Campos inválidos")
   }
 
+  // TODO: Load images of product
   const { name, description, categoryId, sizeId, price, images } = data;
-  // const { name, category, description, price, sizes } = data;
 
   try {
     const product = await prisma.products.create({
@@ -34,13 +34,50 @@ export async function addProduct(data: z.infer<typeof AddProductSchema>) {
         categoryId: Number(categoryId),
         sizeId: Number(sizeId),
         price: Number(price),
-        images: ''
       }
     })
 
     if (product) {
       revalidatePath('/admin/products')
       redirect('/admin/products')
+    }
+  } catch (error) {
+    throw error;
+  }
+}
+
+/**
+ * Updates a product with the given data.
+ *
+ * @param data - The data to update the product with. Must conform to the AddProductSchema.
+ * @param id - The ID of the product to update.
+ * @returns A success message if the product was updated successfully.
+ * @throws An error if the data is invalid or if there was an error updating the product.
+ */
+export async function updateProduct(data: z.infer<typeof AddProductSchema>, id: string) {
+  const isValidField = AddProductSchema.safeParse(data);
+
+  if(!isValidField.success){
+    throw new Error("Campos inválidos")
+  }
+
+  const { name, description, categoryId, sizeId, price, images } = data;
+
+  try {
+    const productUpdated = await prisma.products.update({
+      where: { id },
+      data: {
+        name,
+        description,
+        categoryId: Number(categoryId),
+        sizeId: Number(sizeId),
+        price: Number(price)
+      }
+    })
+
+    if(productUpdated){
+      revalidatePath('/admin/products');
+      return { success: "Producto actualizado"}
     }
   } catch (error) {
     throw error;
@@ -55,7 +92,7 @@ export async function addProduct(data: z.infer<typeof AddProductSchema>) {
  * @returns {Promise<{ success: string }>} - A promise that resolves to an object with a success message if the product is deleted successfully.
  * @throws {Error} - Throws an error if the product cannot be deleted or does not exist.
  */
-export async function deleteProduct ( id: string) {
+export async function deleteProduct ( id: string): Promise<{ success: string; }> {
   try {
     const productDeleted = await prisma.products.delete({
       where: { id }
