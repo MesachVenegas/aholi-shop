@@ -33,7 +33,7 @@ export default function SearchBar({ placeholder, query }: { placeholder: string,
         type="search"
         placeholder={placeholder}
         onChange={ (e) => handleSearch(e.target.value) }
-        className="flex w-full h-full px-2 border-none focus:outline-none"
+        className="flex w-full h-full p-2.5 border-none focus:outline-none"
       />
     </div>
   )
