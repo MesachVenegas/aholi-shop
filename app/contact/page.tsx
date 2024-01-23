@@ -13,6 +13,7 @@ import { ContactFormProps } from "@/libs/definitions";
 import { CursiveTitle } from "@/components/ui/CursiveTitle";
 import { Title3 } from "@/components/ui/Titles";
 import EmailModal from "@/components/EmailModal";
+import WhatsButton from "@/components/WhatsButton";
 
 
 export default function ContactPage() {
@@ -117,6 +118,7 @@ export default function ContactPage() {
       {
         confirm && ( <EmailModal setConfirm={setConfirm} /> )
       }
+      <WhatsButton />
     </main>
   )
 }

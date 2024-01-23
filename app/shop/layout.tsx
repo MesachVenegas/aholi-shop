@@ -1,4 +1,5 @@
 import AsideBar from "@/app/shop/_components/AsideBar";
+import WhatsButton from "@/components/WhatsButton";
 
 export default function layout({ children }: { children: React.ReactNode}) {
 
@@ -8,6 +9,7 @@ export default function layout({ children }: { children: React.ReactNode}) {
       <section className="w-full">
         { children }
       </section>
+      <WhatsButton />
     </main>
   )
 }

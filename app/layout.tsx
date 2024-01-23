@@ -3,7 +3,6 @@ import { Analytics } from '@vercel/analytics/react';
 
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import WhatsButton from '@/components/WhatsButton';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import AuthProvider from '@/components/AuthProvider';
 import { inter } from '@/styles/fonts';
@@ -31,7 +30,6 @@ export default function RootLayout({
         <AuthProvider>
           <Navbar />
           {children}
-          <WhatsButton />
           <Footer />
           <Analytics />
           <GoogleAnalytics />

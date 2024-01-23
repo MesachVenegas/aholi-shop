@@ -15,10 +15,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import { socialLinks } from '@/libs/constants'
-import { CardServices } from '@/components/CardServices'
-import {Title2, Title3, Title5 } from '@/components/ui/Titles'
-import { CursiveTitle } from '@/components/ui/CursiveTitle';
 import { ButtonLink } from '@/components/ui/ButtonLink';
+import { CardServices } from '@/components/CardServices'
+import { CursiveTitle } from '@/components/ui/CursiveTitle';
+import {Title2, Title3, Title5 } from '@/components/ui/Titles'
+import WhatsButton from '@/components/WhatsButton';
 
 export default function Home() {
 
@@ -184,6 +185,7 @@ export default function Home() {
             </figure>
           </div>
         </section>
+        <WhatsButton />
       </main>
     </>
   )

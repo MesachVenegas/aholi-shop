@@ -2,6 +2,7 @@ import { Metadata } from "next";
 
 import { CursiveTitle } from "@/components/ui/CursiveTitle";
 import GalleryViewer from "@/components/Gallery/GalleryViewer";
+import WhatsButton from "@/components/WhatsButton";
 
 export const metadata: Metadata = {
   title: 'Aholi | Gallery',
@@ -18,6 +19,7 @@ export default function GalleryPage() {
       <div className="w-full h-full p-4">
         <GalleryViewer />
       </div>
+      <WhatsButton />
     </main>
   )
 }
