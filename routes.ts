@@ -35,4 +35,4 @@ export const apiAuthPrefix = "/api/auth";
  * @type {string}
  */
 export const DEFAULT_LOGIN_REDIRECT = '/'
-export const DOMAIN_LOGIN_REDIRECT = 'www.aholi.shop'
+export const DOMAIN_LOGIN_REDIRECT = 'https://aholi.shop'
