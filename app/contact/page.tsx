@@ -125,7 +125,7 @@ export default function ContactPage() {
                           disabled={isPending}
                           className="bg-rose-700/50 px-3 py-3 rounded-lg text-white w-full placeholder:text-slate-200"
                           placeholder='562 490 7801'
-                          type='password'
+                          type='text'
                         />
                       </FormControl>
                       <FormMessage />
