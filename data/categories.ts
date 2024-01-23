@@ -31,7 +31,12 @@ export async function getCategories(query: string, page: string) {
   }
 }
 
-
+/**
+ * Retrieves all categories from the database.
+ *
+ * @returns {Promise<Array<Category>>} A promise that resolves to an array of categories.
+ * @throws {Error} If there is an error retrieving the categories.
+ */
 export async function getAllCategories() {
   try {
     const categories = await prisma.category.findMany()
@@ -39,5 +44,23 @@ export async function getAllCategories() {
     return categories;
   } catch (error) {
     console.log(error);
+  }
+}
+
+
+/**
+ * Retrieves the count of categories from the database.
+ *
+ * @returns {Promise<number>} The count of categories.
+ * @throws {Error} If there is an error retrieving the count.
+ */
+export async function getCategoriesCount() {
+  try {
+    const count = await prisma.category.count();
+
+    return count;
+  } catch (error) {
+    console.log(error)
+    return 0;
   }
 }
