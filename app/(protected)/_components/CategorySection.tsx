@@ -4,10 +4,10 @@ import AddCategory from "@/app/(protected)/_components/AddCategory";
 import CategoriesTable from "@/app/(protected)/_components/CategoriesTable";
 import { getCategories, getCategoriesCount } from "@/data/categories";
 
-export default async function CategorySection({ searchParams }: { searchParams: { category: string, page: number}}) {
+export default async function CategorySection({ searchParams }: { searchParams: { category: string, page: string}}) {
   const search = searchParams?.category || '';
   const page = searchParams?.page || '1';
-  const categories = await getCategories(search, String(page));
+  const categories = await getCategories(search, page);
   const categoryCount = await getCategoriesCount();
 
   return (
