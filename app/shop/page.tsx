@@ -1,67 +1,43 @@
-'use client'
-
-import { useEffect, useState } from "react";
-
-import { ProductProps } from "@/types/product";
+import Image from "next/image";
 
 import SearchBar from "@/components/SearchBar";
 import Pagination from "@/components/Pagination";
 import CardProducts from "@/app/shop/_components/CardProduct";
+import { getProductsPagination, getProductsSearch } from "@/data/products";
 
 
 
-export default function ShopPage({ searchParams }: { searchParams: { product: string, page: number }}) {
+export default async function ShopPage({ searchParams }: { searchParams: { product: string, page: string }}) {
   const search = searchParams?.product || '';
-  const page = searchParams?.page || 1;
-  const [products, setProducts] = useState<ProductProps[]>([])
-  const [count, setCount] = useState<number>(0)
-
-  const getProducts = async (search: string, page: number) => {
-    try {
-      const response = await fetch('/api/products', {
-        method: "POST",
-        body: JSON.stringify({search,page})
-      })
-
-      const products = await response.json();
-      setProducts(products)
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  const getProductCount = async () => {
-    try {
-      const res = await fetch('/api/products', {
-        method: 'GET'
-      })
-
-      const count = await res.json();
-      setCount(count)
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  const page = searchParams?.page || "1";
+  const products = await getProductsSearch(search, page);
+  const count = await getProductsPagination();
 
 
-  useEffect(  () => {
-    getProducts(search, page)
-    getProductCount()
-  },[search, page])
 
   return (
     <div className="flex flex-col justify-center items-center p-4  pb-12">
-      <div className="flex w-full">
-        <div className="flex-grow"></div>
-        <div className="flex items-center w-full max-w-md">
-          <SearchBar placeholder="Buscar" query="product" />
-        </div>
+      <div className="flex w-full md:justify-end px-6">
+          <SearchBar placeholder="Buscar" query="product"/>
       </div>
-      <div className="flex flex-wrap justify-center xl:justify-start w-full gap-8 p-8">
+      <div className="flex flex-wrap justify-center xl:justify-start w-full gap-8 p-8 mt-10">
         {
-          products.map( (product) => (
-            <CardProducts prod={product} key={product?.id} />
-          ))
+          products.length !== 0 ?
+          (
+            products.map( (product) => (
+              <CardProducts prod={product} key={product?.id} />
+            ))
+          ) : (
+            <div className="flex flex-col w-full h-full min-h-[80vh] justify-center items-center gap-6 px-10">
+              <Image
+                src='/assets/empty_products.png'
+                width={360}
+                height={360}
+                alt="empty products"
+              />
+              <h2 className="text-4xl">No pude encontrar tu producto 🥺</h2>
+            </div>
+          )
         }
       </div>
       <div className="flex items-center w-full max-w-7xl">
