@@ -53,3 +53,11 @@ export const AddProductSchema = z.object({
   description: z.string(),
   images: z.any()
 })
+
+
+export const AddCategorySchema = z.object({
+  name: z.string().min(1, {
+    message: "Este campo es requerido"
+  }),
+  description: z.string()
+})
