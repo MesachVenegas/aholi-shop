@@ -12,7 +12,11 @@ const resend = new Resend(process.env.RESEND_API_KEY);
  * @returns A promise that resolves when the email is sent successfully.
  */
 export const sendVerificationEmail = async (email: string, token: string) => {
-  const confirmLink = `https://www.aholi.shop/auth/verification?token=${token}`;
+  let confirmLink = `${process.env.HOST_URL}/auth/verification?token=${token}`;
+
+  if (process.env.NODE_ENV !== 'production'){
+    confirmLink = `http://localhost:3000/auth/verification?token=${token}`;
+  }
 
   await resend.emails.send({
     from: 'ventas@aholi.shop',
@@ -23,7 +27,12 @@ export const sendVerificationEmail = async (email: string, token: string) => {
 }
 
 export const sendPasswordResetEmail = async (email: string, token: string) => {
-  const resetLink = `https://www.aholi.shop/auth/reset-password?token=${token}`;
+  let resetLink = `${process.env.HOST_URL}/auth/reset-password?token=${token}`;
+
+  console.log(process.env.NODE_ENV);
+  if (process.env.NODE_ENV !== 'production') {
+    resetLink = `http://localhost:3000/auth/reset-password?token=${token}`;
+  }
 
   await resend.emails.send({
     from: 'ventas@aholi.shop',
