@@ -1,6 +1,6 @@
 'use client'
 
-import { removeSize } from "@/libs/sizes/actions";
+import { deleteSize } from "@/actions/sizes";
 import { SizesProps } from "@/types/size";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,14 +15,19 @@ import {
   Text,
   Title,
 } from "@tremor/react";
+import { toast } from "react-toastify";
 
 
 export default function SizesTable ({ title, tableData } : { title: string, tableData: SizesProps[] }){
 
-  const rmSize = async (id: number) => {
-    await removeSize(id)
-      .then(res => console.log(res))
-      .catch(err => console.error(err))
+  const handleDelete = (id: number) =>{
+    deleteSize(id)
+      .then( res => {
+        toast.success(res.success)
+      })
+      .catch( error => {
+        toast.error(error)
+      })
   }
 
   return (
@@ -51,7 +56,10 @@ export default function SizesTable ({ title, tableData } : { title: string, tabl
                 <Text>{prod?.type}</Text>
               </TableCell>
               <TableCell className="flex gap-3">
-                  <span className="flex items-center gap-1 cursor-pointer text-red-600" onClick={() => rmSize(prod?.id as number) }>
+                  <span
+                    className="flex items-center gap-1 cursor-pointer text-red-600"
+                    onClick={ () => handleDelete(prod?.id as number) }
+                  >
                     <FontAwesomeIcon icon={faTrash} className="w-4 h-4" />
                     Eliminar
                   </span>
