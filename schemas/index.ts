@@ -61,3 +61,21 @@ export const AddCategorySchema = z.object({
   }),
   description: z.string()
 })
+
+
+export const AddNewSizeSchema = z.object({
+  name: z.string({
+    required_error: "Este campo es requerido"
+  }),
+  width: z.string({
+    required_error: "Este campo es requerido",
+    invalid_type_error: "El ancho debe ser indicada en números"
+  }),
+  height: z.string({
+    required_error: "Este campo es requerido",
+    invalid_type_error: "La altura debe ser indicada en números"
+  }),
+  type: z.string({
+    required_error: "Este campo es requerido"
+  })
+})
