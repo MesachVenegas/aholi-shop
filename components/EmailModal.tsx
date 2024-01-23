@@ -1,8 +1,18 @@
+'use client'
+
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { Dialog } from '@headlessui/react'
 
 export default function EmailModal({ setConfirm }: { setConfirm: (state:boolean) => void}) {
-  let [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(true)
+  const router = useRouter()
+
+  function handleModal(){
+    setIsOpen(false)
+    setConfirm(false);
+    router.push('/')
+  }
 
   return (
     <Dialog
@@ -20,11 +30,9 @@ export default function EmailModal({ setConfirm }: { setConfirm: (state:boolean)
             </p>
 
             <button
+              type='button'
               className='flex justify-center items-center py-1 bg-blue-500 w-28 m-auto rounded-md text-white hover:bg-blue-600 font-bold'
-              onClick={() => {
-                setIsOpen(false)
-                setConfirm(false);
-              }}
+              onClick={handleModal}
             >
               Ok
             </button>
