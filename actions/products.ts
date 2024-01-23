@@ -34,6 +34,7 @@ export async function addProduct(data: z.infer<typeof AddProductSchema>) {
         categoryId: Number(categoryId),
         sizeId: Number(sizeId),
         price: Number(price),
+        images: ''
       }
     })
 
@@ -71,7 +72,8 @@ export async function updateProduct(data: z.infer<typeof AddProductSchema>, id: 
         description,
         categoryId: Number(categoryId),
         sizeId: Number(sizeId),
-        price: Number(price)
+        price: Number(price),
+        images: ''
       }
     })
 
