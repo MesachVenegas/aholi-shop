@@ -23,7 +23,7 @@ export default function Pagination({ count } : { count: number}) {
     replace(`${pathname}?${params.toString()}`);
   }
 
-  if(count === 0){
+  if(count === 0 || count === 1){
     return null;
   }
 
