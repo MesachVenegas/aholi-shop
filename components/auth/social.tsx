@@ -1,11 +1,11 @@
 import { signIn } from "next-auth/react";
 import { FcGoogle } from 'react-icons/fc';
-import { DEFAULT_LOGIN_LOGIN_REDIRECT } from "@/routes";
+import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
 
 const Social = () => {
   const oauthAuthentication = (provider: "google" | "facebook") => {
     signIn(provider, {
-      callbackUrl: DEFAULT_LOGIN_LOGIN_REDIRECT
+      callbackUrl: DEFAULT_LOGIN_REDIRECT
     })
   }
 

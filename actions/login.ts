@@ -4,7 +4,7 @@ import * as z from 'zod';
 import { AuthError } from 'next-auth';
 import { signIn } from '@/auth';
 import { LoginSchema } from '@/schemas';
-import { DEFAULT_LOGIN_LOGIN_REDIRECT } from '@/routes';
+import { DEFAULT_LOGIN_REDIRECT, DOMAIN_LOGIN_REDIRECT } from '@/routes';
 import { generateVerificationToken } from '@/libs/tokens';
 import { getUserByEmail } from '@/data/user';
 import { sendVerificationEmail } from '@/libs/email';
@@ -34,7 +34,7 @@ export const login = async (data: z.infer<typeof LoginSchema>) => {
     await signIn('credentials', {
       email,
       password,
-      redirectTo: DEFAULT_LOGIN_LOGIN_REDIRECT,
+      redirectTo: process.env.NODE_ENV === 'production' ? DOMAIN_LOGIN_REDIRECT : DEFAULT_LOGIN_REDIRECT,
     })
   } catch(error) {
     if( error instanceof AuthError){
