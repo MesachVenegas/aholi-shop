@@ -21,6 +21,7 @@ import { valueFormatter } from "@/libs/utils";
 import { ProductProps } from "@/types/product";
 import ToastNotification from "@/components/toast-notification";
 import { deleteProduct } from "@/actions/products";
+import Link from "next/link";
 
 
 export default function ProductsTable ({ data } : { data: ProductProps[]}){
@@ -82,10 +83,10 @@ export default function ProductsTable ({ data } : { data: ProductProps[]}){
                     {valueFormatter(prod?.price as unknown as number)}
                 </TableCell>
                 <TableCell className="flex gap-3">
-                    <span className="flex items-center gap-1 cursor-pointer text-rose-100">
+                    <Link href={`/admin/products/edit/${prod?.id}`} className="flex items-center gap-1 cursor-pointer text-rose-100">
                       <FontAwesomeIcon icon={faEdit} className="w-4 h-4" />
                       Editar
-                    </span>
+                    </Link>
                     <span
                       className="flex items-center gap-1 cursor-pointer text-red-600"
                       onClick={ () => handleDelete(prod?.id as string)}
