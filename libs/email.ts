@@ -1,5 +1,6 @@
 'use server'
 
+import { DOMAIN_LOGIN_REDIRECT } from '@/routes';
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -12,7 +13,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
  * @returns A promise that resolves when the email is sent successfully.
  */
 export const sendVerificationEmail = async (email: string, token: string) => {
-  let confirmLink = `${process.env.HOST_URL}/auth/verification?token=${token}`;
+  let confirmLink = `${DOMAIN_LOGIN_REDIRECT}/auth/verification?token=${token}`;
 
   if (process.env.NODE_ENV !== 'production'){
     confirmLink = `http://localhost:3000/auth/verification?token=${token}`;
@@ -27,7 +28,7 @@ export const sendVerificationEmail = async (email: string, token: string) => {
 }
 
 export const sendPasswordResetEmail = async (email: string, token: string) => {
-  let resetLink = `${process.env.HOST_URL}/auth/reset-password?token=${token}`;
+  let resetLink = `${DOMAIN_LOGIN_REDIRECT}/auth/reset-password?token=${token}`;
 
   console.log(process.env.NODE_ENV);
   if (process.env.NODE_ENV !== 'production') {

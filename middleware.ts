@@ -4,7 +4,8 @@ import {
   publicRoutes,
   authRoutes,
   apiAuthPrefix,
-  DEFAULT_LOGIN_LOGIN_REDIRECT
+  DEFAULT_LOGIN_REDIRECT,
+  DOMAIN_LOGIN_REDIRECT
 } from '@/routes';
 
 const { auth } = NextAuth(authConfig);
@@ -29,7 +30,10 @@ export default auth( req => {
 
   if(isAuthRoute){
     if(isLoggedIn){
-      return Response.redirect(new URL(DEFAULT_LOGIN_LOGIN_REDIRECT, nextUrl));
+      if (process.env.NODE_ENV !== 'development') {
+        return Response.redirect(new URL(DOMAIN_LOGIN_REDIRECT))
+      }
+      return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
     }
     return null;
   }
