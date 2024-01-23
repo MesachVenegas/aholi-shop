@@ -79,3 +79,17 @@ export const AddNewSizeSchema = z.object({
     required_error: "Este campo es requerido"
   })
 })
+
+
+export const ContactEmailSchema = z.object({
+  name: z.string().min(1,{
+    message: "Este campo es requerido"
+  }),
+  email: z.string().email({
+    message: "Ingresa un correo valido"
+  }),
+  phone: z.string(),
+  message: z.string().min(3,{
+    message: "Este campo es requerido"
+  })
+})
