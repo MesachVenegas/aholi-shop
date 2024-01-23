@@ -7,18 +7,13 @@ import { faCartPlus, faTruckFast } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { ProductProps } from '@/types/product'
 
-export default function CardProduct({
-  prod
-} : {
-  prod: ProductProps
-}) {
-
+export default function CardProduct({ prod } : { prod: ProductProps }) {
 
   return (
     <figure className="flex flex-col p-2 w-96 h-[500px] border border-rose-700 rounded-lg cursor-pointer">
       <div className="w-full h-[300px] relative">
         <Image
-          src={`${prod?.images[0] ? prod?.images[0] : prod?.images}`}
+          src={`${prod?.images ? prod.images : "/products/default_img.png"}`}
           fill={true}
           alt='alt'
         />
