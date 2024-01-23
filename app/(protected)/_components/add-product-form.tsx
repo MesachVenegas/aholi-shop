@@ -1,6 +1,6 @@
 'use client'
 
-import { useTransition, useState } from "react";
+import { useTransition } from "react";
 import { useRouter } from "next/navigation";
 
 import * as z from 'zod';
@@ -34,6 +34,7 @@ import { addProduct } from "@/actions/products";
 
 
 const AddProductForm = ( { categories, sizes } : { categories: CategoryProps[], sizes: SizesProps[]}) => {
+  const [isPending, startTransition] = useTransition();
   const router =  useRouter();
   const form = useForm<z.infer<typeof AddProductSchema>>({
     resolver: zodResolver(AddProductSchema),
@@ -48,12 +49,14 @@ const AddProductForm = ( { categories, sizes } : { categories: CategoryProps[], 
   });
 
   const onSubmit =  (data: z.infer<typeof AddProductSchema>) => {
-    addProduct(data)
-    .then( res => {
-      return;
-    })
-    .catch( error => {
-      toast.error(`${error}`)
+    startTransition( () => {
+      addProduct(data)
+      .then( res => {
+        return;
+      })
+      .catch( error => {
+        toast.error(`${error}`)
+      })
     })
   }
 
@@ -75,7 +78,7 @@ const AddProductForm = ( { categories, sizes } : { categories: CategoryProps[], 
                   <FormControl>
                     <Input
                       {...field}
-                      disabled={false}
+                      disabled={isPending}
                       placeholder="Nombre del producto"
                       className="bg-slate-200"
                       type='text'
@@ -98,7 +101,7 @@ const AddProductForm = ( { categories, sizes } : { categories: CategoryProps[], 
                   <FormControl>
                     <Textarea
                       {...field}
-                      disabled={false}
+                      disabled={isPending}
                       placeholder="Descripcion del producto"
                       className="bg-slate-200"
                       rows={4}
@@ -147,7 +150,7 @@ const AddProductForm = ( { categories, sizes } : { categories: CategoryProps[], 
                 render={({field}) => (
                   <FormItem>
                     <FormLabel>Tamaño</FormLabel>
-                    <Select onValueChange={field.onChange} required>
+                    <Select onValueChange={field.onChange} disabled={isPending}>
                       <FormControl>
                         <SelectTrigger className="bg-slate-200">
                           <SelectValue placeholder="Selecciona una tamaño" />
@@ -182,7 +185,7 @@ const AddProductForm = ( { categories, sizes } : { categories: CategoryProps[], 
                     <FormControl>
                       <Input
                         {...field}
-                        disabled={false}
+                        disabled={isPending}
                         placeholder="17.45"
                         className="bg-slate-200"
                         type="number"
