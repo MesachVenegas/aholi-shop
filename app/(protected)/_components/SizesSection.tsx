@@ -1,19 +1,20 @@
 import Pagination from "@/components/Pagination";
 import SearchBar from "@/components/SearchBar";
 import AddSize from "@/app/(protected)/_components/AddSize";
-import { getCountSizes, getSizes } from "@/libs/sizes/data";
 import SizesTable from "@/app/(protected)/_components/SizesTables";
+import { getSizePagination, getSizeSearch } from "@/data/sizes";
+import { SizesProps } from "@/types/size";
 
 
 export default async function SizesSection({
   searchParams
 }: {
-  searchParams: { size: string, page: number }
+  searchParams: { size: string, page: string }
 }) {
   const search = searchParams?.size || '';
-  const page = searchParams?.page || 1;
-  const sizes = await getSizes(search, page);
-  const count = await getCountSizes();
+  const page = searchParams?.page || '1';
+  const sizes = await getSizeSearch(search, page) as SizesProps[];
+  const count = await getSizePagination();
 
 
   return (
