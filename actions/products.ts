@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 import * as z from 'zod';
 
 import prisma from "@/libs/prisma";
-import { AddProductSchema } from "@/schemas";
+import { AddProductSchema, EditProductSSchema } from "@/schemas";
 
 /**
  * Adds a new product to the database.
@@ -55,8 +55,8 @@ export async function addProduct(data: z.infer<typeof AddProductSchema>) {
  * @returns A success message if the product was updated successfully.
  * @throws An error if the data is invalid or if there was an error updating the product.
  */
-export async function updateProduct(data: z.infer<typeof AddProductSchema>, id: string) {
-  const isValidField = AddProductSchema.safeParse(data);
+export async function updateProduct(data: z.infer<typeof EditProductSSchema>, id: string) {
+  const isValidField = EditProductSSchema.safeParse(data);
 
   if(!isValidField.success){
     throw new Error("Campos inválidos")
@@ -66,23 +66,25 @@ export async function updateProduct(data: z.infer<typeof AddProductSchema>, id: 
 
   try {
     const productUpdated = await prisma.products.update({
-      where: { id },
+      where: { id: id },
       data: {
         name,
         description,
-        categoryId: Number(categoryId),
-        sizeId: Number(sizeId),
         price: Number(price),
-        images: ''
+        images,
+        sizeId: Number(sizeId),
+        categoryId: Number(categoryId)
       }
     })
 
     if(productUpdated){
-      revalidatePath('/admin/products');
-      return { success: "Producto actualizado"}
+      revalidatePath('/admin/products')
     }
+
+    return { success: "Producto actualizado"}
+
   } catch (error) {
-    throw error;
+    throw new Error("Oops algo ha salido mal!");
   }
 }
 
