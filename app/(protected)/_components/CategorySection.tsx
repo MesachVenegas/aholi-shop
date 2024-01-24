@@ -20,9 +20,6 @@ export default async function CategorySection({ searchParams }: { searchParams: 
         <CategoriesTable title="Categorías" tableData={ categories } />
         <Pagination count={categoryCount} />
       </div>
-      {
-
-      }
     </section>
   )
 }
