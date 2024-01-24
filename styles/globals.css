@@ -124,5 +124,5 @@
 }
 
 .dropdown_link {
-  @apply text-sm text-gray-900 hover:text-rose-100 font-medium;
+  @apply text-base text-gray-900 font-medium;
 }
