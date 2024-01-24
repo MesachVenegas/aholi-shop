@@ -197,27 +197,6 @@ const AddProductForm = ( { categories, sizes } : { categories: CategoryProps[], 
               >
               </FormField>
             </div>
-            {/* <div className="space-y-4">
-              <FormField
-                control={form.control}
-                name="images"
-                render={({field}) => (
-                  <FormItem>
-                    <FormLabel>Imágenes</FormLabel>
-                    <FormControl>
-                      <Input
-                        {...field}
-                        disabled={false}
-                        multiple
-                        type="file"
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              >
-              </FormField>
-            </div> */}
           </div>
 
           <div className="flex w-full justify-between py-2">
