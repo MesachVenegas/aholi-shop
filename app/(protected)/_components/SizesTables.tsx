@@ -31,9 +31,9 @@ export default function SizesTable ({ title, tableData } : { title: string, tabl
   }
 
   return (
-    <Card className="border border-rose-100/40 rounded-xl">
+    <Card className="h-full">
       <Title className="text-xl">{ title }</Title>
-      <Table className="mt-5">
+      <Table className="h-full border border-rose-100/40 rounded-xl mt-5">
         <TableHead>
           <TableRow>
             <TableHeaderCell>Nombre</TableHeaderCell>
