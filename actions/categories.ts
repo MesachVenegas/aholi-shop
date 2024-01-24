@@ -27,7 +27,7 @@ export async function deleteCategory(id: number): Promise<{ success: string; }> 
       throw new Error("La categoria no pudo ser eliminado o no existe")
     }
   } catch (error) {
-    throw error
+    throw new Error("Oops algo ha salido mal!")
   }
 }
 
@@ -35,7 +35,7 @@ export async function deleteCategory(id: number): Promise<{ success: string; }> 
 export async function addNewCategory(data: z.infer<typeof AddCategorySchema> ) {
   const isValidFields = AddCategorySchema.safeParse(data);
 
-  if(!isValidFields) return { error: "Campos inválidos"}
+  if(!isValidFields.success) throw new Error("Campos inválidos");
 
   const { name, description } = data;
 
@@ -47,12 +47,13 @@ export async function addNewCategory(data: z.infer<typeof AddCategorySchema> ) {
       }
     })
 
-    if(!newCategory) return { error: "Ops algo salio mal"};
+    if (newCategory) {
+      revalidatePath('/admin/tags')
+    }
 
-    revalidatePath('/admin/tags')
-    return { success: "Categoria creada"}
+    return { success: "Categoria creada" }
   } catch (error) {
-    throw new Error("Ocurrió un problema, No se puedo crear la categoria")
+    throw error;
   }
 
 }
