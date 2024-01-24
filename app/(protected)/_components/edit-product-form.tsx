@@ -13,10 +13,12 @@ import { AddProductSchema } from "@/schemas";
 import { Input } from "@/components/ui/Input";
 import { ProductProps } from "@/types/product";
 import { Button } from "@/components/ui/button";
+import { updateProduct } from "@/actions/products";
 import { Textarea } from "@/components/ui/textarea";
 import ToastNotification from "@/components/toast-notification";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { ClipLoader } from "react-spinners";
 
 
 
@@ -30,30 +32,34 @@ const EditProductForm = ( {
   const form = useForm<z.infer<typeof AddProductSchema>>({
     resolver: zodResolver(AddProductSchema),
     defaultValues: {
-      name: '',
-      description: '',
-      categoryId: '',
-      sizeId: '',
-      price: '',
-      images: ''
+      name: product?.name || undefined,
+      description: product?.description || undefined,
+      categoryId: String(product?.categoryId) || undefined,
+      sizeId: String(product?.sizeId) || undefined,
+      price: String(product?.price),
+      images: product?.images || undefined
     }
   });
 
   const onSubmit =  (data: z.infer<typeof AddProductSchema>) => {
     startTransition( () => {
-      // addProduct(data)
-      // .then( res => {
-      //   return;
-      // })
-      // .catch( error => {
-      //   toast.error(`${error}`)
-      // })
+      updateProduct(data, product?.id as string)
+      .then( res => {
+        if(res.success){
+          toast.success(res.success, {
+            onClose: () => router.push('/admin/products')
+          })
+        }
+      })
+      .catch( error => {
+        toast.error(error)
+      })
     })
   }
 
   return (
     <>
-      <ToastNotification />
+      <ToastNotification closeIn={1500} />
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -220,10 +226,19 @@ const EditProductForm = ( {
               Cancelar
             </Button>
             <Button
-              className="bg-rose-100/80 hover:bg-rose-100"
-              type="submit"
-            >
-              Agregar Producto
+                type="submit"
+                className="bg-rose-100/80 hover:bg-rose-100"
+              >
+              { !isPending ? ( <span>Guardar</span> ) : (<span>Guardando...</span>) }
+              <span className='flex items-center'>
+                <ClipLoader
+                  color='#F1F1F1'
+                  loading={isPending}
+                  aria-label='Enviando Mensaje'
+                  data-testid='loading'
+                  size={20}
+                />
+              </span>
             </Button>
           </div>
 
