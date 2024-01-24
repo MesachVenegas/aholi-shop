@@ -20,7 +20,7 @@ export default async function ProtectedAdminLayout({ children }: { children: Rea
     <RoleGate allowedRole='admin' role={user?.role as Role} >
       <main className='flex flex-col lg:flex-row'>
         <SideBar />
-        <div className='flex flex-col w-full overflow-auto py-10 sm:px-2 xl:p-10'>
+        <div className='flex flex-col w-full min-h-[75vh] overflow-auto py-10 sm:px-2 xl:p-10'>
           {children}
         </div>
       </main>
