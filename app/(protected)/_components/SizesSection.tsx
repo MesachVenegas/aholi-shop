@@ -6,11 +6,7 @@ import { getSizePagination, getSizeSearch } from "@/data/sizes";
 import { SizesProps } from "@/types/size";
 
 
-export default async function SizesSection({
-  searchParams
-}: {
-  searchParams: { size: string, page: string }
-}) {
+export default async function SizesSection({ searchParams }: { searchParams: { size: string, page: string } }) {
   const search = searchParams?.size || '';
   const page = searchParams?.page || '1';
   const sizes = await getSizeSearch(search, page) as SizesProps[];
