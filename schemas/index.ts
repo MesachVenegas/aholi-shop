@@ -55,6 +55,16 @@ export const AddProductSchema = z.object({
 })
 
 
+export const EditProductSSchema = z.object({
+  name: z.optional(z.string()),
+  description: z.optional(z.string()),
+  images: z.optional(z.string()),
+  price: z.optional(z.string()),
+  categoryId: z.optional(z.string()),
+  sizeId: z.optional(z.string())
+})
+
+
 export const AddCategorySchema = z.object({
   name: z.string().min(1, {
     message: "Este campo es requerido"
@@ -68,15 +78,13 @@ export const AddNewSizeSchema = z.object({
     required_error: "Este campo es requerido"
   }),
   width: z.string({
-    required_error: "Este campo es requerido",
-    invalid_type_error: "El ancho debe ser indicada en números"
+    required_error: "Este campo es requerido"
   }),
   height: z.string({
-    required_error: "Este campo es requerido",
-    invalid_type_error: "La altura debe ser indicada en números"
+    required_error: "Este campo es requerido"
   }),
   type: z.string({
-    required_error: "Este campo es requerido"
+    required_error: "Este campo requerido"
   })
 })
 
@@ -88,7 +96,7 @@ export const ContactEmailSchema = z.object({
   email: z.string().email({
     message: "Ingresa un correo valido"
   }),
-  phone: z.string(),
+  phone: z.optional(z.string()),
   message: z.string().min(3,{
     message: "Este campo es requerido"
   })
