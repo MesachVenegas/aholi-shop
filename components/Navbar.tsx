@@ -16,6 +16,7 @@ import { Button } from '@/components/ui/button';
 import { SheetClose } from "@/components/ui/sheet";
 import { useCurrentUser } from "@/hooks/useCurrentUser";
 import AsideWrapper from "@/components/aside-menu_wrap";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function Navbar() {
   const router = useRouter();
@@ -23,6 +24,10 @@ export default function Navbar() {
   const pathname = usePathname();
   const [toggleCart, setToggleCart] = useState(false);
   const [toggleMenu, setToggleMenu] = useState(false);
+
+  if(user){
+    console.log(user?.name?.split(' '));
+  }
 
   return (
     <div className="bg-rose-100">
@@ -75,14 +80,28 @@ export default function Navbar() {
               }
             </div>
             <div className="flex">
-              <Image
-                src={user && user.image ?  user.image : '/assets/default_avatar.png'}
-                width={37}
-                height={37}
-                alt={ user && user?.name ? user.name : 'default_avatar'}
-                className="object-contain rounded-full cursor-pointer"
-                onClick={() => setToggleMenu( prev => !prev)}
-              />
+              {
+                user ? (
+                  <Avatar
+                    className="cursor-pointer"
+                    onClick={() => setToggleMenu( prev => !prev)}
+                  >
+                    {
+                      user.image ? (
+                        <AvatarImage src={ user.image }/>
+                      ) : (
+                        <AvatarFallback className="uppercase text-black">
+                          {`${user?.name?.split(' ')[0][0]}${user?.name?.split(' ')[1][0]}`}
+                        </AvatarFallback>
+                      )
+                    }
+                  </Avatar>
+                ) : (
+                  <Link href='/login' className="flex items-center text-xs">
+                    Iniciar Session
+                  </Link>
+                )
+              }
               {
                 toggleMenu && (
                   <div className="dropdown z-50">
@@ -126,33 +145,16 @@ export default function Navbar() {
                         </>
                       )
                     }
-                    {
-                      user ? (
-                        <>
-                          <button
-                            type="button" className="flex justify-center items-center bg-rose-100/80 w-full rounded-xl mt-5 p-1 gap-2"
-                            onClick={ () => {
-                              setToggleMenu(prev => !prev)
-                              signOut({
-                                callbackUrl: '/'
-                              })
-                            }}
-                          >
-                            <small>Cerrar sesion</small>
-                          <FontAwesomeIcon icon={faDoorClosed} className='w-4 h-4' />
-                          </button>
-                        </>
-                      ) : (
-                        <Link
-                          href='/auth/login'
-                          className="flex justify-center items-center bg-rose-100/80 w-full rounded-xl mt-5 p-1 gap-2"
-                          onClick={ () => setToggleMenu(prev => !prev)}
-                        >
-                          <small>Iniciar session</small>
-                          <FontAwesomeIcon icon={faDoorOpen} className='w-4 h-4' />
-                        </Link>
-                      )
-                    }
+                    <Button
+                      type="button" className="flex justify-center items-center bg-rose-100/80 w-full rounded-xl mt-5 p-1 gap-2"
+                      onClick={ () => {
+                        setToggleMenu(prev => !prev)
+                        signOut()
+                      }}
+                    >
+                      <small>Cerrar sesion</small>
+                    <FontAwesomeIcon icon={faDoorClosed} className='w-4 h-4' />
+                    </Button>
                   </div>
                 )
               }
@@ -172,13 +174,28 @@ export default function Navbar() {
                 <>
                   <div className="flex flex-row-reverse items-end w-full gap-2">
                     <div className="relative flex justify-center items-center w-[80px] h-[80px] p-2">
-                      <Image
-                        src={user && user.image ?  user.image : '/assets/default_avatar.png'}
-                        width={70}
-                        height={70}
-                        alt={ user && user?.name ? user.name : 'default_avatar'}
-                        className="object-contain rounded-full"
-                      />
+                      {
+                        user ? (
+                          <Avatar
+                            className="w-16 h-16 cursor-pointer"
+                            onClick={() => setToggleMenu( prev => !prev)}
+                          >
+                            {
+                              user.image ? (
+                                <AvatarImage src={ user.image }/>
+                              ) : (
+                                <AvatarFallback className="uppercase text-black">
+                                  {`${user?.name?.split(' ')[0][0]}${user?.name?.split(' ')[1][0]}`}
+                                </AvatarFallback>
+                              )
+                            }
+                          </Avatar>
+                        ) : (
+                          <Link href='/login' className="flex items-center text-xs">
+                            Iniciar Session
+                          </Link>
+                        )
+                      }
                     </div>
                     <div className="flex flex-col items-end gap-2">
                       <h3 className="text-gray-700"> {user?.name} </h3>

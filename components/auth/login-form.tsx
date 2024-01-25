@@ -2,8 +2,9 @@
 
 
 import { useTransition, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
+
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 
 import * as z from 'zod';
 import { useForm } from "react-hook-form";
@@ -18,12 +19,12 @@ import {
   FormMessage
 } from '@/components/ui/form';
 import { LoginSchema } from '@/schemas';
+import { login } from '@/actions/login';
 import { Input } from '@/components/ui/Input';
-import CardWrapper from '@/components/auth/card-wrapper';
+import { Button } from '@/components/ui/button';
 import FormError from '@/components/form-error';
 import FormSuccess from '@/components/form-success';
-import { login } from '@/actions/login';
-import { Button } from '@/components/ui/button';
+import CardWrapper from '@/components/auth/card-wrapper';
 
 
 function LoginForm() {
@@ -31,6 +32,7 @@ function LoginForm() {
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState<string | undefined>('');
   const [success, setSuccess] = useState<string | undefined>('');
+
   const urlError = searchParams.get('error') === 'OAuthAccountNotLinked' ? "La cuenta ya esta asociada a un provedor" : "";
 
   const form = useForm<z.infer<typeof LoginSchema>>({
@@ -48,8 +50,14 @@ function LoginForm() {
     startTransition(() => {
       login(data)
         .then( res => {
-          setError(res?.error);
-          setSuccess(res?.success);
+          if(res?.error){
+            form.reset();
+            setError(res?.error);
+          }
+          if(res?.success){
+            form.reset();
+            setSuccess(res?.success);
+          }
         })
     });
   }

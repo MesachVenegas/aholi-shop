@@ -12,7 +12,7 @@ import '@/styles/globals.css'
 
 
 export const metadata: Metadata = {
-  title: 'Aholi | Home',
+  title: 'Aholi Decoraciones',
   description: 'Aholi Decoraciones para toda ocasion, recuerdos para todo tipo de eventos, XV años, Bodas, etc',
   keywords: ['arreglos', 'decoracion', 'centros de mesa', 'xv años', 'decoraciones', 'bodas', 'graduaciones'],
 }
