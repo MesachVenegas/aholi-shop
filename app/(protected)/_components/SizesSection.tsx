@@ -19,7 +19,7 @@ export default async function SizesSection({ searchParams }: { searchParams: { s
         <SearchBar placeholder="Buscar Categoria" query="size" />
         <AddSize />
       </div>
-      <div className="flex flex-col justify-between h-full w-full">
+      <div className="flex flex-col justify-between h-full w-full gap-4">
         <SizesTable title="Tamaños" tableData={ sizes } />
         <Pagination count={count} />
       </div>
