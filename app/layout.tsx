@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
+
 import { Analytics } from '@vercel/analytics/react';
 
+import { inter } from '@/styles/fonts';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import GoogleAnalytics from '@/components/GoogleAnalytics';
 import AuthProvider from '@/components/AuthProvider';
-import { inter } from '@/styles/fonts';
+import ReduxProvider from '@/components/redux-provider';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 
 import '@/styles/globals.css'
 
@@ -26,15 +28,17 @@ export default function RootLayout({
 
   return (
     <html lang="es">
-      <body className={`${inter.className} bg-lila-100 text-slate-900`}>
-        <AuthProvider>
-          <Navbar />
-          {children}
-          <Footer />
-          <Analytics />
-          <GoogleAnalytics />
-        </AuthProvider>
-      </body>
+      <ReduxProvider>
+        <body className={`${inter.className} bg-lila-100 text-slate-900`}>
+          <AuthProvider>
+            <Navbar />
+            {children}
+            <Footer />
+            <Analytics />
+            <GoogleAnalytics />
+          </AuthProvider>
+        </body>
+      </ReduxProvider>
     </html>
   )
 }
