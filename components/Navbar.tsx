@@ -8,10 +8,10 @@ import { usePathname, useRouter } from "next/navigation";
 
 import { signOut } from "next-auth/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBagShopping, faBars, faDoorClosed, faDoorOpen, faPersonWalkingArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faDoorClosed, faDoorOpen, faPersonWalkingArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 import { menuLinks } from "@/libs/constants";
-import { Title5 } from "@/components/ui/Titles";
+import CartShop from "@/components/cart-shop";
 import { Button } from '@/components/ui/button';
 import { SheetClose } from "@/components/ui/sheet";
 import { useCurrentUser } from "@/hooks/useCurrentUser";
@@ -22,12 +22,8 @@ export default function Navbar() {
   const router = useRouter();
   const user = useCurrentUser();
   const pathname = usePathname();
-  const [toggleCart, setToggleCart] = useState(false);
   const [toggleMenu, setToggleMenu] = useState(false);
 
-  if(user){
-    console.log(user?.name?.split(' '));
-  }
 
   return (
     <div className="bg-rose-100">
@@ -45,7 +41,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="sm:flex hidden gap-6 items-center relative">
+        <div className="md:flex hidden gap-6 items-center relative">
           <ul className="flex-grow flex gap-4">
             {
               menuLinks.map(link =>(
@@ -65,19 +61,7 @@ export default function Navbar() {
           {/* Shopping cart and profile */}
           <div className="flex justify-between gap-2">
             <div className="flex items-center relative">
-              <span
-                className="flex gap-2 items-center text-sm cursor-pointer"
-                onClick={ () => setToggleCart(prev => !prev)}
-              >
-                <FontAwesomeIcon icon={faBagShopping} className="w-5 h-5"/>
-              </span>
-              {
-                toggleCart && (
-                  <div className="dropdown_cart z-50 justify-center">
-                    <Title5>Mi Carrito</Title5>
-                  </div>
-                )
-              }
+              <CartShop />
             </div>
             <div className="flex">
               {
@@ -104,7 +88,7 @@ export default function Navbar() {
               }
               {
                 toggleMenu && (
-                  <div className="dropdown z-50">
+                  <div className="dropdown z-50 shadow-2xl">
                     {
                       user && (
                         <>
@@ -165,7 +149,7 @@ export default function Navbar() {
         {/* Mobile Navigation */}
         <AsideWrapper
           title="Aholi Shop"
-          styleTrigger="sm:hidden flex relative"
+          styleTrigger="md:hidden flex relative"
           icon={faBars}
         >
           <div className="flex flex-col w-full h-full gap-4">
