@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
-import { PrismaAdapter } from '@auth/prisma-adapter';
 import { Role } from "@prisma/client";
+import { PrismaAdapter } from '@auth/prisma-adapter';
 
 import prisma from "@/libs/prisma";
 import authConfig from "@/auth.config";
@@ -38,9 +38,6 @@ export const {
       return true
     },
     async session({ session }) {
-      // if (token.sub && session.user) {
-      //   session.user.id = token.sub;
-      // }
       if (session && session.user) {
         const userExist = await getUserByEmail(session.user.email as string)
 
