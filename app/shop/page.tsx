@@ -20,7 +20,7 @@ export default async function ShopPage({ searchParams }: { searchParams: { produ
       <div className="flex w-full md:justify-end px-6">
           <SearchBar placeholder="Buscar" query="product"/>
       </div>
-      <div className="flex flex-wrap justify-center xl:justify-start w-full gap-8 p-8 mt-10">
+      <div className="flex flex-wrap justify-center xl:justify-start w-full gap-8 p-2 md:p-6 mt-10">
         {
           products.length !== 0 ?
           (
