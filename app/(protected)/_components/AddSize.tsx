@@ -46,7 +46,7 @@ export default function AddSize() {
           title='Agregar Tamaño'
           description='Aquí podrás agregar un nuevo tamaño rellena los campos con la información requerida y al finalizar no olvides guardar los cambios'
           triggerText='Agregar'
-          styleTrigger='bg-rose-100/80 hover:bg-rose-100 rounded-lg text-white w-full max-w-[250px]'
+          styleTrigger='w-full max-w-[200px] rounded-lg bg-rose-100/80 hover:bg-rose-100 text-white font-bold'
           icon={faMaximize}
         >
           <Form {...form}>
@@ -141,12 +141,10 @@ export default function AddSize() {
                   </div>
 
                   <div className="flex w-full justify-between py-2 mt-5">
-                    <SheetClose>
-                      <Button className="bg-red-500/80 hover:bg-red-500" type="reset" >
+                    <SheetClose className="w-32 h-8 rounded-md text-white bg-red-500/80 hover:bg-red-500" type="reset">
                         Cancelar
-                      </Button>
                     </SheetClose>
-                    <Button className="bg-rose-100/80 hover:bg-rose-100" type="submit">
+                    <Button className="w-32 h-8 rounded-md text-white bg-rose-100/80 hover:bg-rose-100" type="submit">
                       Agregar
                     </Button>
                   </div>
