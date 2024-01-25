@@ -16,7 +16,7 @@ export default async function CategorySection({ searchParams }: { searchParams: 
         <SearchBar placeholder="Buscar Categoria" query="category" />
         <AddCategory />
       </div>
-      <div className="flex flex-col justify-between h-full w-full">
+      <div className="flex flex-col justify-between h-full w-full gap-4">
         <CategoriesTable title="Categorías" tableData={ categories } />
         <Pagination count={categoryCount} />
       </div>
