@@ -38,7 +38,7 @@ export default function AddCategory() {
       title='Agregar nueva categoria'
       description='Aquí puedes agregar una nueva categoria ingresa un nombre y una descripcion breve de la categoria al finalizar presiona en guardar'
       styleTrigger='w-full max-w-[200px] rounded-lg bg-rose-100/80 hover:bg-rose-100 text-white font-bold'
-      triggerText='Agregar Categoria'
+      triggerText='Agregar'
       icon={faTag}
     >
       <Form {...form}>
@@ -91,24 +91,20 @@ export default function AddCategory() {
           </div>
 
           <div className="flex w-full justify-between py-2 mt-10">
-            <SheetClose>
-              <Button
-                disabled={isPending}
-                className="bg-red-500/80 hover:bg-red-500"
-                type="reset"
-                >
-                  Cancelar
-              </Button>
+            <SheetClose
+              disabled={isPending}
+              className="w-32 h-8 rounded-md text-white bg-red-500/80 hover:bg-red-500"
+              type="reset"
+            >
+              Cancelar
             </SheetClose>
-            <SheetClose>
-              <Button
-                disabled={isPending}
-                className="bg-rose-100/80 hover:bg-rose-100"
-                type="submit"
-              >
-                Agregar
-              </Button>
-            </SheetClose>
+            <Button
+              disabled={isPending}
+              className="w-32 h-8 rounded-md text-white bg-rose-100/80 hover:bg-rose-100"
+              type="submit"
+            >
+              Guardad
+            </Button>
           </div>
         </form>
       </Form>
