@@ -35,7 +35,7 @@ export default function AsideWrapper({
         { icon ? <FontAwesomeIcon icon={icon} className="w-7 h-7" /> : null }
         { triggerText }
       </SheetTrigger>
-      <SheetContent className="flex flex-col gap-6">
+      <SheetContent className="flex flex-col w-full sm:max-w-md gap-6">
         <SheetHeader className="py-4">
           <SheetTitle>{ title }</SheetTitle>
           <SheetDescription>
