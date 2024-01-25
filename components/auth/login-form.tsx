@@ -20,6 +20,7 @@ import {
 } from '@/components/ui/form';
 import { LoginSchema } from '@/schemas';
 import { login } from '@/actions/login';
+import { ClipLoader } from 'react-spinners';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/button';
 import FormError from '@/components/form-error';
@@ -128,9 +129,16 @@ function LoginForm() {
           <button
             type="submit"
             disabled={isPending}
-            className=" w-full h-12 bg-rose-100 hover:bg-rose-700 rounded-xl font-bold text-white mt-4"
+            className="flex justify-center items-center w-full h-12 bg-rose-100 hover:bg-rose-700 rounded-xl font-bold gap-4 text-white mt-4"
           >
-            Iniciar sesión
+              { isPending ? "Iniciando..." : "Iniciar Session" }
+              <ClipLoader
+                color='#F1F1F1'
+                loading={isPending}
+                aria-label='Enviando Mensaje'
+                data-testid='loading'
+                size={20}
+              />
           </button>
         </form>
       </Form>
