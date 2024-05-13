@@ -83,7 +83,7 @@ export default function Home() {
             </div>
           </div>
           <Link href='/gallery' className='flex group gap-2 items-center text-2xl mt-16 border w-48 transition-all ease-in-out duration-300 rounded-lg py-2 px-3 border-rose-700 text-rose-700'>
-            Ver Galeria
+            Ver Galería
             <FontAwesomeIcon icon={faChevronRight} className='w-4 h-4  group-hover:ml-4'/>
           </Link>
         </section>
@@ -108,7 +108,7 @@ export default function Home() {
                 content='Facilitamos la adquisición de tus macetas AHOLI. Ofrecemos entregas a domicilio para que recibas la frescura y la belleza directamente en tu puerta. También puedes recoger en puntos específicos, garantizando flexibilidad y conveniencia.'
               />
               <CardServices
-                title='asesoria'
+                title='asesoría'
                 source='/assets/noun-help.svg'
                 content='¿No estás seguro de qué planta es la adecuada para ti? Nuestro equipo de expertos está aquí para asesorarte en la elección de la combinación perfecta de suculentas y macetas, asegurando que cada compra sea una decisión informada y feliz.'
               />
@@ -178,7 +178,7 @@ export default function Home() {
             <figure className='block w-full max-w-4xl h-[300px] md:h-[500px] relative border border-rose-100 rounded-figure overflow-hidden'>
               <Image
                 src='/images/decorations_san_valentin.jpeg'
-                fill={true} alt='aholi_asset'
+                fill={true} alt='Aholi_asset'
                 style={{ objectFit: 'cover'}}
                 sizes='(max-width: 440px)'
               />
